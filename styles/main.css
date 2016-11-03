@@ -1,0 +1,86 @@
+body {
+    background-color: mediumaquamarine;
+    margin: 0;
+    padding: 0;
+    font-family: courier, monospace;
+}
+
+.container {
+    width: 80%;
+    min-width: 400px;
+    margin: 20px auto;
+    padding: 0;
+    position: relative;    
+}
+
+.paper {
+    background-color: #f5f5f5;
+    
+    padding: 0;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+.title {
+    padding-top: 20px;
+    padding-left: 60px;
+}
+
+.list {
+    color: #555555;
+    font-size: 20px;
+    padding: 0 !important;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.list li {
+    list-style: none;
+    border-top: 1px dotted cornflowerblue;
+    height: auto;
+    padding: 10px;
+    text-transform: capitalize;
+    padding-left: 60px;
+}
+
+.list li:hover {
+    background-color: #f0f0f0;
+    -webkit-transition: all 0.2s;
+    -moz-transition:    all 0.2s;
+    -o-transition:      all 0.2s;
+    transition:         all 0.2s;
+}
+
+.edit {
+    float: right;
+    width: 40px;
+    margin-top: -8px; 
+}
+
+.lines {
+    border-left: 1px solid #ffaa9f;
+    border-right: 1px solid #ffaa9f;
+    width: 2px;
+    float: left;
+    height: 100%;
+    margin-left: 40px;
+    margin-right: 25px;
+    position: absolute;
+}
+
+.new-to-do {
+    font-size: 18px;
+    font-family: courier, monospace;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.new-item {
+    margin-left: 60px;
+    width: 50%;
+    min-width: 250px;
+}
+
+.add-new {
+    background-color: slategrey;
+}
