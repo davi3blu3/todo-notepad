@@ -2,7 +2,7 @@ var path = require('path')
 
 module.exports = {
     context: __dirname,
-    entry: './ToDo.js',
+    entry: './react/ToDo.js',
     output: {
         path: path.join(__dirname, '/public/scripts'),
         filename: 'bundle.js'

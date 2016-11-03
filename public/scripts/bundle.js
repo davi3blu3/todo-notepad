@@ -48,104 +48,12 @@
 
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(34);
+	var Paper = __webpack_require__(172);
 
 	var ToDoApp = React.createElement(
 	    'div',
 	    null,
-	    React.createElement(
-	        'div',
-	        { className: 'container paper' },
-	        React.createElement('div', { className: 'lines' }),
-	        React.createElement(
-	            'h2',
-	            { className: 'title' },
-	            'To-Do List'
-	        ),
-	        React.createElement(
-	            'ul',
-	            { className: 'list' },
-	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
-	            React.createElement(
-	                'li',
-	                { className: '' },
-	                'Get Up',
-	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
-	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
-	            ),
-	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
-	            React.createElement(
-	                'li',
-	                { className: '' },
-	                'Shower',
-	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
-	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
-	            ),
-	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
-	            React.createElement(
-	                'li',
-	                { className: '' },
-	                'Let Dexter Out',
-	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
-	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
-	            ),
-	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
-	            React.createElement(
-	                'li',
-	                { className: '' },
-	                'Make Breakfast',
-	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
-	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
-	            ),
-	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
-	            React.createElement(
-	                'li',
-	                { className: '' },
-	                'Go to Work',
-	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
-	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
-	            ),
-	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
-	            React.createElement(
-	                'li',
-	                { className: '' },
-	                'Go to the Gym',
-	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
-	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
-	            ),
-	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
-	            React.createElement(
-	                'li',
-	                { className: '' },
-	                'Make Dinner',
-	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
-	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
-	            ),
-	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
-	            React.createElement(
-	                'li',
-	                { className: '' },
-	                'Write Code!',
-	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
-	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
-	            ),
-	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
-	            React.createElement(
-	                'li',
-	                { className: '' },
-	                'Brush Teeth',
-	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
-	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
-	            ),
-	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
-	            React.createElement(
-	                'li',
-	                { className: '' },
-	                'Go to Sleep',
-	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
-	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
-	            )
-	        )
-	    ),
+	    React.createElement(Paper, null),
 	    React.createElement(
 	        'div',
 	        { className: 'container' },
@@ -21561,6 +21469,51 @@
 
 	module.exports = ReactDOMNullInputValuePropHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 172 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var Paper = React.createClass({
+	    displayName: "Paper",
+	    render: function render() {
+	        var toDoItems = ["Get Up", "Shower", "Let Dexter Out", "Make Breakfast", "Go To Work", "Go To Gym", "Make Spaghetti", "Write Code!", "Brush Teeth", "Go To Sleep"];
+	        return React.createElement(
+	            "div",
+	            { className: "container paper" },
+	            React.createElement("div", { className: "lines" }),
+	            React.createElement(
+	                "h2",
+	                { className: "title" },
+	                "To-Do List"
+	            ),
+	            React.createElement(
+	                "ul",
+	                { className: "list" },
+	                toDoItems.map(function (item, index) {
+	                    return React.createElement(
+	                        "div",
+	                        { key: index },
+	                        React.createElement("img", { src: "img/check.png", alt: "check mark", className: "done" }),
+	                        React.createElement(
+	                            "li",
+	                            { className: "" },
+	                            item,
+	                            React.createElement("img", { src: "img/delete.png", alt: "delete x mark", className: "delete" }),
+	                            React.createElement("img", { src: "img/pencil.png", alt: "pencil icon", className: "edit" })
+	                        )
+	                    );
+	                })
+	            )
+	        );
+	    }
+	});
+
+	module.exports = Paper;
 
 /***/ }
 /******/ ]);
