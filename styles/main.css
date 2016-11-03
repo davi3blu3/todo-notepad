@@ -51,20 +51,27 @@ body {
     float: left;
     width: 32px;
     margin-top: 6px;
-    margin-left: 5px; 
+    margin-left: 5px;
+    visibility: hidden;
 }
 
 .edit {
     float: right;
     width: 48px;
-    margin-top: -12px; 
+    margin-top: -12px;
+    visibility: hidden;
 }
 
 .delete {
     float: right;
     width: 32px;
     margin-top: -4px;
-    margin-right: 0;    
+    margin-right: 0;
+    visibility: hidden;  
+}
+
+.show {
+    visibility: visible;
 }
 
 .lines {
