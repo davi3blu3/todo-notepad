@@ -51,11 +51,110 @@
 
 	var ToDoApp = React.createElement(
 	    'div',
-	    { className: 'container' },
+	    null,
 	    React.createElement(
-	        'h1',
-	        null,
-	        'HI MOM!'
+	        'div',
+	        { className: 'container paper' },
+	        React.createElement('div', { className: 'lines' }),
+	        React.createElement(
+	            'h2',
+	            { className: 'title' },
+	            'To-Do List'
+	        ),
+	        React.createElement(
+	            'ul',
+	            { className: 'list' },
+	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
+	            React.createElement(
+	                'li',
+	                { className: '' },
+	                'Get Up',
+	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
+	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
+	            ),
+	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
+	            React.createElement(
+	                'li',
+	                { className: '' },
+	                'Shower',
+	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
+	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
+	            ),
+	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
+	            React.createElement(
+	                'li',
+	                { className: '' },
+	                'Let Dexter Out',
+	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
+	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
+	            ),
+	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
+	            React.createElement(
+	                'li',
+	                { className: '' },
+	                'Make Breakfast',
+	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
+	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
+	            ),
+	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
+	            React.createElement(
+	                'li',
+	                { className: '' },
+	                'Go to Work',
+	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
+	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
+	            ),
+	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
+	            React.createElement(
+	                'li',
+	                { className: '' },
+	                'Go to the Gym',
+	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
+	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
+	            ),
+	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
+	            React.createElement(
+	                'li',
+	                { className: '' },
+	                'Make Dinner',
+	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
+	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
+	            ),
+	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
+	            React.createElement(
+	                'li',
+	                { className: '' },
+	                'Write Code!',
+	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
+	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
+	            ),
+	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
+	            React.createElement(
+	                'li',
+	                { className: '' },
+	                'Brush Teeth',
+	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
+	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
+	            ),
+	            React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
+	            React.createElement(
+	                'li',
+	                { className: '' },
+	                'Go to Sleep',
+	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
+	                React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
+	            )
+	        )
+	    ),
+	    React.createElement(
+	        'div',
+	        { className: 'container' },
+	        React.createElement('input', { type: 'text', className: 'new-to-do new-item', placeholder: 'Add New To-Do' }),
+	        React.createElement(
+	            'button',
+	            { className: 'new-to-do add-new' },
+	            '+'
+	        )
 	    )
 	);
 
