@@ -44,17 +44,27 @@ body {
 }
 
 .list li:hover {
-    background-color: #f0f0f0;
-    -webkit-transition: all 0.2s;
-    -moz-transition:    all 0.2s;
-    -o-transition:      all 0.2s;
-    transition:         all 0.2s;
+    background-color: papayawhip;
+}
+
+.done {
+    float: left;
+    width: 32px;
+    margin-top: 6px;
+    margin-left: 5px; 
 }
 
 .edit {
     float: right;
-    width: 40px;
-    margin-top: -8px; 
+    width: 48px;
+    margin-top: -12px; 
+}
+
+.delete {
+    float: right;
+    width: 32px;
+    margin-top: -4px;
+    margin-right: 0;    
 }
 
 .lines {
@@ -66,6 +76,10 @@ body {
     margin-left: 40px;
     margin-right: 25px;
     position: absolute;
+}
+
+.complete {
+    text-decoration: line-through;
 }
 
 .new-to-do {
