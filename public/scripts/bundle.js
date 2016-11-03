@@ -49,21 +49,13 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(34);
 	var Paper = __webpack_require__(172);
+	var AddNew = __webpack_require__(173);
 
 	var ToDoApp = React.createElement(
 	    'div',
 	    null,
 	    React.createElement(Paper, null),
-	    React.createElement(
-	        'div',
-	        { className: 'container' },
-	        React.createElement('input', { type: 'text', className: 'new-to-do new-item', placeholder: 'Add New To-Do' }),
-	        React.createElement(
-	            'button',
-	            { className: 'new-to-do add-new' },
-	            '+'
-	        )
-	    )
+	    React.createElement(AddNew, null)
 	);
 
 	ReactDOM.render(ToDoApp, document.getElementById('app'));
@@ -21481,7 +21473,7 @@
 	var Paper = React.createClass({
 	    displayName: "Paper",
 	    render: function render() {
-	        var toDoItems = ["Get Up", "Shower", "Let Dexter Out", "Make Breakfast", "Go To Work", "Go To Gym", "Make Spaghetti", "Write Code!", "Brush Teeth", "Go To Sleep"];
+	        var toDoItems = ["Wake Up", "Shower", "Let Dexter Out", "Make Breakfast", "Go To Work", "Go To Gym", "Make Spaghetti", "Write Code!", "Brush Teeth", "Go To Sleep"];
 	        return React.createElement(
 	            "div",
 	            { className: "container paper" },
@@ -21514,6 +21506,32 @@
 	});
 
 	module.exports = Paper;
+
+/***/ },
+/* 173 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var AddNew = React.createClass({
+	    displayName: "AddNew",
+	    render: function render() {
+	        return React.createElement(
+	            "div",
+	            { className: "container" },
+	            React.createElement("input", { type: "text", className: "new-to-do new-item", placeholder: "Add New To-Do Item" }),
+	            React.createElement(
+	                "button",
+	                { className: "new-to-do add-new" },
+	                "+"
+	            )
+	        );
+	    }
+	});
+
+	module.exports = AddNew;
 
 /***/ }
 /******/ ]);

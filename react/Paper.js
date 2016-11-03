@@ -2,7 +2,7 @@ const React = require('react')
 
 const Paper = React.createClass({
     render() {
-        var toDoItems = ["Get Up", "Shower", "Let Dexter Out", "Make Breakfast", "Go To Work", "Go To Gym", "Make Spaghetti", "Write Code!", "Brush Teeth", "Go To Sleep"]
+        var toDoItems = ["Wake Up", "Shower", "Let Dexter Out", "Make Breakfast", "Go To Work", "Go To Gym", "Make Spaghetti", "Write Code!", "Brush Teeth", "Go To Sleep"]
         return (
             <div className="container paper">
                 <div className="lines"></div>
