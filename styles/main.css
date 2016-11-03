@@ -36,7 +36,7 @@ body {
 
 .list li {
     list-style: none;
-    border-top: 1px dotted cornflowerblue;
+    border-top: 1px solid cornflowerblue;
     height: auto;
     padding: 10px;
     text-transform: capitalize;
@@ -67,7 +67,7 @@ body {
     width: 32px;
     margin-top: -4px;
     margin-right: 0;
-    visibility: hidden;  
+    visibility: hidden;
 }
 
 .show {
