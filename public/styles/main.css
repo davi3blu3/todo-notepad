@@ -44,34 +44,27 @@ body {
     padding-right: 60px;
 }
 
-.list li:hover {
-    background-color: papayawhip;
-}
-
-.done {
+.check {
     width: 32px;
     position: absolute;
     margin-top: -5px;
     left: 5px;
-    /*visibility: hidden;*/
-}
-
-/*.edit {
-    float: right;
-    width: 48px;
-    margin-top: -12px;
     visibility: hidden;
-}*/
+}
 
 .delete {
     width: 32px;
     position: absolute;
     margin-top: -5px;
     right: 5px;
-    /*visibility: hidden;*/
+    visibility: hidden;
 }
 
-.show {
+.list li:hover {
+    background-color: papayawhip;
+}
+
+.list li:hover img {
     visibility: visible;
 }
 

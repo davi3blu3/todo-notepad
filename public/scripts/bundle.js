@@ -22972,14 +22972,17 @@
 
 	var ListItem = React.createClass({
 	    displayName: "ListItem",
+	    getInitialState: function getInitialState() {
+	        return { "showIcons": "hidden" };
+	    },
 	    render: function render() {
 	        return React.createElement(
 	            "div",
 	            null,
 	            React.createElement(
 	                "li",
-	                { className: "" },
-	                React.createElement("img", { src: "img/check.png", alt: "check mark", className: "done" }),
+	                null,
+	                React.createElement("img", { src: "img/check.png", alt: "check mark", className: "check" }),
 	                this.props.item,
 	                React.createElement("img", { src: "img/delete.png", alt: "delete x mark", className: "delete" })
 	            )
