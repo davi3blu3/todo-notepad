@@ -49,13 +49,13 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(34);
 	var Paper = __webpack_require__(172);
-	var AddNew = __webpack_require__(173);
+	var AddNew = __webpack_require__(198);
 
 	var ToDoApp = React.createElement(
 	    'div',
 	    null,
-	    React.createElement(Paper, null),
-	    React.createElement(AddNew, null)
+	    React.createElement(AddNew, null),
+	    React.createElement(Paper, null)
 	);
 
 	ReactDOM.render(ToDoApp, document.getElementById('app'));
@@ -21469,7 +21469,7 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var Axios = __webpack_require__(174);
+	var Axios = __webpack_require__(173);
 
 	var Paper = React.createClass({
 	    displayName: 'Paper',
@@ -21490,12 +21490,15 @@
 	    componentWillUnmount: function componentWillUnmount() {
 	        this.serverRequest.abort();
 	    },
+	    handleClick: function handleClick() {
+	        return 0;
+	    },
 	    render: function render() {
-	        // var toDoItems = ["Monday", "Tuesday", "Wednesday", "Thursday"]
 	        return React.createElement(
 	            'div',
 	            { className: 'container paper' },
-	            React.createElement('div', { className: 'lines' }),
+	            React.createElement('div', { className: 'lines lines-left' }),
+	            React.createElement('div', { className: 'lines lines-right' }),
 	            React.createElement(
 	                'h2',
 	                { className: 'title' },
@@ -21529,27 +21532,9 @@
 /* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
-	var React = __webpack_require__(1);
-
-	var AddNew = React.createClass({
-	    displayName: "AddNew",
-	    render: function render() {
-	        return React.createElement(
-	            "div",
-	            { className: "container" },
-	            React.createElement("input", { type: "text", className: "new-to-do new-item", placeholder: "Add New To-Do Item" }),
-	            React.createElement(
-	                "button",
-	                { className: "new-to-do add-new" },
-	                "+"
-	            )
-	        );
-	    }
-	});
-
-	module.exports = AddNew;
+	module.exports = __webpack_require__(174);
 
 /***/ },
 /* 174 */
@@ -21557,17 +21542,9 @@
 
 	'use strict';
 
-	module.exports = __webpack_require__(175);
-
-/***/ },
-/* 175 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var utils = __webpack_require__(176);
-	var bind = __webpack_require__(177);
-	var Axios = __webpack_require__(178);
+	var utils = __webpack_require__(175);
+	var bind = __webpack_require__(176);
+	var Axios = __webpack_require__(177);
 
 	/**
 	 * Create an instance of Axios
@@ -21600,15 +21577,15 @@
 	};
 
 	// Expose Cancel & CancelToken
-	axios.Cancel = __webpack_require__(196);
-	axios.CancelToken = __webpack_require__(197);
-	axios.isCancel = __webpack_require__(193);
+	axios.Cancel = __webpack_require__(195);
+	axios.CancelToken = __webpack_require__(196);
+	axios.isCancel = __webpack_require__(192);
 
 	// Expose all/spread
 	axios.all = function all(promises) {
 	  return Promise.all(promises);
 	};
-	axios.spread = __webpack_require__(198);
+	axios.spread = __webpack_require__(197);
 
 	module.exports = axios;
 
@@ -21616,14 +21593,14 @@
 	module.exports.default = axios;
 
 /***/ },
-/* 176 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-	var bind = __webpack_require__(177);
+	var bind = __webpack_require__(176);
 
 	/*global toString:true*/
 
@@ -21918,7 +21895,7 @@
 	};
 
 /***/ },
-/* 177 */
+/* 176 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -21934,17 +21911,17 @@
 	};
 
 /***/ },
-/* 178 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var defaults = __webpack_require__(179);
-	var utils = __webpack_require__(176);
-	var InterceptorManager = __webpack_require__(190);
-	var dispatchRequest = __webpack_require__(191);
-	var isAbsoluteURL = __webpack_require__(194);
-	var combineURLs = __webpack_require__(195);
+	var defaults = __webpack_require__(178);
+	var utils = __webpack_require__(175);
+	var InterceptorManager = __webpack_require__(189);
+	var dispatchRequest = __webpack_require__(190);
+	var isAbsoluteURL = __webpack_require__(193);
+	var combineURLs = __webpack_require__(194);
 
 	/**
 	 * Create a new instance of Axios
@@ -22024,13 +22001,13 @@
 	module.exports = Axios;
 
 /***/ },
-/* 179 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(176);
-	var normalizeHeaderName = __webpack_require__(180);
+	var utils = __webpack_require__(175);
+	var normalizeHeaderName = __webpack_require__(179);
 
 	var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 	var DEFAULT_CONTENT_TYPE = {
@@ -22047,10 +22024,10 @@
 	  var adapter;
 	  if (typeof XMLHttpRequest !== 'undefined') {
 	    // For browsers use XHR adapter
-	    adapter = __webpack_require__(181);
+	    adapter = __webpack_require__(180);
 	  } else if (typeof process !== 'undefined') {
 	    // For node use HTTP adapter
-	    adapter = __webpack_require__(181);
+	    adapter = __webpack_require__(180);
 	  }
 	  return adapter;
 	}
@@ -22111,12 +22088,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 180 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(176);
+	var utils = __webpack_require__(175);
 
 	module.exports = function normalizeHeaderName(headers, normalizedName) {
 	  utils.forEach(headers, function processHeader(value, name) {
@@ -22128,18 +22105,18 @@
 	};
 
 /***/ },
-/* 181 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(176);
-	var settle = __webpack_require__(182);
-	var buildURL = __webpack_require__(185);
-	var parseHeaders = __webpack_require__(186);
-	var isURLSameOrigin = __webpack_require__(187);
-	var createError = __webpack_require__(183);
-	var btoa = typeof window !== 'undefined' && window.btoa || __webpack_require__(188);
+	var utils = __webpack_require__(175);
+	var settle = __webpack_require__(181);
+	var buildURL = __webpack_require__(184);
+	var parseHeaders = __webpack_require__(185);
+	var isURLSameOrigin = __webpack_require__(186);
+	var createError = __webpack_require__(182);
+	var btoa = typeof window !== 'undefined' && window.btoa || __webpack_require__(187);
 
 	module.exports = function xhrAdapter(config) {
 	  return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -22232,7 +22209,7 @@
 	    // This is only done if running in a standard browser environment.
 	    // Specifically not if we're in a web worker, or react-native.
 	    if (utils.isStandardBrowserEnv()) {
-	      var cookies = __webpack_require__(189);
+	      var cookies = __webpack_require__(188);
 
 	      // Add xsrf header
 	      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ? cookies.read(config.xsrfCookieName) : undefined;
@@ -22306,12 +22283,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 182 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var createError = __webpack_require__(183);
+	var createError = __webpack_require__(182);
 
 	/**
 	 * Resolve or reject a Promise based on response status.
@@ -22331,12 +22308,12 @@
 	};
 
 /***/ },
-/* 183 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var enhanceError = __webpack_require__(184);
+	var enhanceError = __webpack_require__(183);
 
 	/**
 	 * Create an Error with the specified message, config, error code, and response.
@@ -22353,7 +22330,7 @@
 	};
 
 /***/ },
-/* 184 */
+/* 183 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22378,12 +22355,12 @@
 	};
 
 /***/ },
-/* 185 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(176);
+	var utils = __webpack_require__(175);
 
 	function encode(val) {
 	  return encodeURIComponent(val).replace(/%40/gi, '@').replace(/%3A/gi, ':').replace(/%24/g, '$').replace(/%2C/gi, ',').replace(/%20/g, '+').replace(/%5B/gi, '[').replace(/%5D/gi, ']');
@@ -22444,12 +22421,12 @@
 	};
 
 /***/ },
-/* 186 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(176);
+	var utils = __webpack_require__(175);
 
 	/**
 	 * Parse headers into an object
@@ -22488,12 +22465,12 @@
 	};
 
 /***/ },
-/* 187 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(176);
+	var utils = __webpack_require__(175);
 
 	module.exports = utils.isStandardBrowserEnv() ?
 
@@ -22556,7 +22533,7 @@
 	}();
 
 /***/ },
-/* 188 */
+/* 187 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22596,12 +22573,12 @@
 	module.exports = btoa;
 
 /***/ },
-/* 189 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(176);
+	var utils = __webpack_require__(175);
 
 	module.exports = utils.isStandardBrowserEnv() ?
 
@@ -22654,12 +22631,12 @@
 	}();
 
 /***/ },
-/* 190 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(176);
+	var utils = __webpack_require__(175);
 
 	function InterceptorManager() {
 	  this.handlers = [];
@@ -22711,15 +22688,15 @@
 	module.exports = InterceptorManager;
 
 /***/ },
-/* 191 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(176);
-	var transformData = __webpack_require__(192);
-	var isCancel = __webpack_require__(193);
-	var defaults = __webpack_require__(179);
+	var utils = __webpack_require__(175);
+	var transformData = __webpack_require__(191);
+	var isCancel = __webpack_require__(192);
+	var defaults = __webpack_require__(178);
 
 	/**
 	 * Throws a `Cancel` if cancellation has been requested.
@@ -22776,12 +22753,12 @@
 	};
 
 /***/ },
-/* 192 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(176);
+	var utils = __webpack_require__(175);
 
 	/**
 	 * Transform the data for a request or a response
@@ -22801,7 +22778,7 @@
 	};
 
 /***/ },
-/* 193 */
+/* 192 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22811,7 +22788,7 @@
 	};
 
 /***/ },
-/* 194 */
+/* 193 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22832,7 +22809,7 @@
 	};
 
 /***/ },
-/* 195 */
+/* 194 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22850,7 +22827,7 @@
 	};
 
 /***/ },
-/* 196 */
+/* 195 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22875,12 +22852,12 @@
 	module.exports = Cancel;
 
 /***/ },
-/* 197 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Cancel = __webpack_require__(196);
+	var Cancel = __webpack_require__(195);
 
 	/**
 	 * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -22937,7 +22914,7 @@
 	module.exports = CancelToken;
 
 /***/ },
-/* 198 */
+/* 197 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22968,6 +22945,32 @@
 	    return callback.apply(null, arr);
 	  };
 	};
+
+/***/ },
+/* 198 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var AddNew = React.createClass({
+	    displayName: "AddNew",
+	    render: function render() {
+	        return React.createElement(
+	            "div",
+	            { className: "container" },
+	            React.createElement("input", { type: "text", className: "new-to-do new-item", placeholder: "Add New To-Do Item" }),
+	            React.createElement(
+	                "button",
+	                { className: "new-to-do add-new" },
+	                "+"
+	            )
+	        );
+	    }
+	});
+
+	module.exports = AddNew;
 
 /***/ }
 /******/ ]);

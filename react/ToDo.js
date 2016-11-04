@@ -5,8 +5,8 @@ const AddNew = require('./AddNew')
 
 const ToDoApp = (
     <div>
-        <Paper />
         <AddNew />
+        <Paper />
     </div>
 )
 

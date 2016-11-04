@@ -41,6 +41,7 @@ body {
     padding: 10px;
     text-transform: capitalize;
     padding-left: 60px;
+    padding-right: 60px
 }
 
 .list li:hover {
@@ -75,14 +76,23 @@ body {
 }
 
 .lines {
-    border-left: 1px solid #ffaa9f;
-    border-right: 1px solid #ffaa9f;
     width: 2px;
-    float: left;
     height: 100%;
-    margin-left: 40px;
-    margin-right: 25px;
     position: absolute;
+}
+
+.lines-left {
+    border-left: 1px solid rgba(255,170,159,1);
+    border-right: 1px solid rgba(255,170,159,1);
+    float: left;
+    margin-left: 40px;
+}
+
+.lines-right {
+    border-left: 1px solid rgba(255,170,159,.3);
+    border-right: 1px solid rgba(255,170,159,.3);
+    right: 40px;
+
 }
 
 .complete {
@@ -99,7 +109,6 @@ body {
 .new-item {
     margin-left: 60px;
     width: 50%;
-    min-width: 250px;
 }
 
 .add-new {
