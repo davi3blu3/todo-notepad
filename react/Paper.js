@@ -1,5 +1,6 @@
 const React = require('react')
 const Axios = require('axios')
+const ListItem = require('./ListItem')
 
 const Paper = React.createClass({
     getInitialState: function() {
@@ -32,14 +33,7 @@ const Paper = React.createClass({
                 <ul className="list">
                     {this.state.toDoItems.map(function(item, index){
                         return (
-                            <div key={index}>
-                                <img src="img/check.png" alt="check mark" className="done" />
-                                <li className="">
-                                    {item}
-                                    <img src="img/delete.png" alt="delete x mark" className="delete" />
-                                    <img src="img/pencil.png" alt="pencil icon" className="edit" />
-                                </li>
-                            </div>
+                            <ListItem key={index} item={item} />
                         )
                     })}
                 </ul>

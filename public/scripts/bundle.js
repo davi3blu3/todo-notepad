@@ -21470,6 +21470,7 @@
 
 	var React = __webpack_require__(1);
 	var Axios = __webpack_require__(173);
+	var ListItem = __webpack_require__(199);
 
 	var Paper = React.createClass({
 	    displayName: 'Paper',
@@ -21508,18 +21509,7 @@
 	                'ul',
 	                { className: 'list' },
 	                this.state.toDoItems.map(function (item, index) {
-	                    return React.createElement(
-	                        'div',
-	                        { key: index },
-	                        React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'done' }),
-	                        React.createElement(
-	                            'li',
-	                            { className: '' },
-	                            item,
-	                            React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' }),
-	                            React.createElement('img', { src: 'img/pencil.png', alt: 'pencil icon', className: 'edit' })
-	                        )
-	                    );
+	                    return React.createElement(ListItem, { key: index, item: item });
 	                })
 	            )
 	        );
@@ -22971,6 +22961,33 @@
 	});
 
 	module.exports = AddNew;
+
+/***/ },
+/* 199 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var ListItem = React.createClass({
+	    displayName: "ListItem",
+	    render: function render() {
+	        return React.createElement(
+	            "div",
+	            null,
+	            React.createElement("img", { src: "img/check.png", alt: "check mark", className: "done" }),
+	            React.createElement(
+	                "li",
+	                { className: "" },
+	                this.props.item,
+	                React.createElement("img", { src: "img/delete.png", alt: "delete x mark", className: "delete" })
+	            )
+	        );
+	    }
+	});
+
+	module.exports = ListItem;
 
 /***/ }
 /******/ ]);
