@@ -41,7 +41,7 @@ body {
     padding: 10px;
     text-transform: capitalize;
     padding-left: 60px;
-    padding-right: 60px
+    padding-right: 60px;
 }
 
 .list li:hover {
@@ -49,26 +49,26 @@ body {
 }
 
 .done {
-    float: left;
     width: 32px;
-    margin-top: 6px;
-    margin-left: 5px;
-    visibility: hidden;
+    position: absolute;
+    margin-top: -5px;
+    left: 5px;
+    /*visibility: hidden;*/
 }
 
-.edit {
+/*.edit {
     float: right;
     width: 48px;
     margin-top: -12px;
     visibility: hidden;
-}
+}*/
 
 .delete {
-    float: right;
     width: 32px;
-    margin-top: -4px;
-    margin-right: 0;
-    visibility: hidden;
+    position: absolute;
+    margin-top: -5px;
+    right: 5px;
+    /*visibility: hidden;*/
 }
 
 .show {
