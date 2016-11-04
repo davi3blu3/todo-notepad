@@ -22966,25 +22966,32 @@
 /* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var React = __webpack_require__(1);
 
 	var ListItem = React.createClass({
-	    displayName: "ListItem",
+	    displayName: 'ListItem',
 	    getInitialState: function getInitialState() {
-	        return { "showIcons": "hidden" };
+	        return { 'done': '' };
+	    },
+	    handleClick: function handleClick() {
+	        this.state.done === '' ? this.setState({ 'done': 'complete' }) : this.setState({ 'done': '' });
 	    },
 	    render: function render() {
 	        return React.createElement(
-	            "div",
+	            'div',
 	            null,
 	            React.createElement(
-	                "li",
+	                'li',
 	                null,
-	                React.createElement("img", { src: "img/check.png", alt: "check mark", className: "check" }),
-	                this.props.item,
-	                React.createElement("img", { src: "img/delete.png", alt: "delete x mark", className: "delete" })
+	                React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'check', onClick: this.handleClick }),
+	                React.createElement(
+	                    'span',
+	                    { className: this.state.done },
+	                    this.props.item
+	                ),
+	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' })
 	            )
 	        );
 	    }

@@ -68,6 +68,10 @@ body {
     visibility: visible;
 }
 
+.complete {
+    text-decoration: line-through;
+}
+
 .lines {
     width: 2px;
     height: 100%;
