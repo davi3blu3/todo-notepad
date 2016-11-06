@@ -81,9 +81,7 @@
 	            Axios.post('https://fierce-wildwood-92925.herokuapp.com/list', {
 	                "item": newToDo
 	            }).then(function (result) {
-	                th.setState({
-	                    toDoList: result.data
-	                });
+	                th.setState();
 	            });
 	        }
 	        // Clear input
@@ -99,7 +97,7 @@
 	    }
 	});
 
-	ReactDOM.render(ToDoApp, document.getElementById('app'));
+	ReactDOM.render(React.createElement(ToDoApp, null), document.getElementById('app'));
 
 /***/ },
 /* 1 */

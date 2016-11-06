@@ -40,7 +40,7 @@ const ToDoApp = React.createClass({
         // Clear input
         this.refs.toDoInput.value = ""
     },    
-    render () {
+    render() {
         return (
             <div>
                 <AddNew handleSubmit={this.handleSubmit} />
@@ -50,4 +50,4 @@ const ToDoApp = React.createClass({
     }
 })
 
-ReactDOM.render(ToDoApp, document.getElementById('app'))
+ReactDOM.render(<ToDoApp />, document.getElementById('app'))
