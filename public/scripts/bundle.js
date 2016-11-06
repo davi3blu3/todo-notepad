@@ -22993,10 +22993,15 @@
 	    // },
 	    handleSubmit: function handleSubmit(e) {
 	        var newToDo = this.refs.toDoInput.value;
-	        // POST REQUEST
-	        Axios.post('https://fierce-wildwood-92925.herokuapp.com/list').then(function (result) {
-	            this.forceUpdate();
-	        });
+
+	        if (!(newToDo === "")) {
+	            // POST REQUEST
+	            Axios.post('https://fierce-wildwood-92925.herokuapp.com/list', {
+	                "item": newToDo
+	            }).then(function (result) {
+	                this.forceUpdate();
+	            });
+	        }
 	    },
 	    render: function render() {
 	        return React.createElement(

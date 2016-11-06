@@ -59,10 +59,6 @@ app.post("/list", function(req, res) {
   var newToDo = req.body;
   newToDo.complete = false; // could this be added client side?
 
-  if (!(req.body.item)) {
-    handleError(res, "Invalid user input", "Must provide a To Do.", 400);
-  }
-
   db.collection(TODO_LIST).insertOne(newToDo, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to create new To Do.");
