@@ -2,8 +2,9 @@
   "name": "to-do-notebook",
   "version": "1.0.0",
   "description": "A To-Do List app styled like wide-ruled notebook paper",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +25,9 @@
   "homepage": "https://github.com/davi3blu3/todo-notepad#readme",
   "dependencies": {
     "axios": "^0.15.2",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.11",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   },
