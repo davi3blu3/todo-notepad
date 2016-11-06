@@ -22986,11 +22986,6 @@
 	var AddNew = React.createClass({
 	    displayName: 'AddNew',
 
-	    // getInitialState: function() {
-	    //     return {
-	    //         "newToDo": ""
-	    //     }
-	    // },
 	    handleSubmit: function handleSubmit() {
 	        th = this;
 	        var newToDo = this.refs.toDoInput.value;
@@ -23011,7 +23006,7 @@
 	            React.createElement('input', { ref: 'toDoInput', type: 'text', className: 'new-to-do new-item', placeholder: 'Add New To-Do Item' }),
 	            React.createElement(
 	                'button',
-	                { className: 'new-to-do add-new', onClick: this.handleSubmit },
+	                { className: 'new-to-do add-new', onClick: this.handleSubmit.bind(this) },
 	                '+'
 	            )
 	        );

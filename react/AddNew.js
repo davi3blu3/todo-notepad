@@ -2,11 +2,6 @@ const React = require('react')
 const Axios = require('axios')
 
 const AddNew = React.createClass({
-    // getInitialState: function() {
-    //     return {
-    //         "newToDo": ""
-    //     }
-    // },
     handleSubmit: function() {
         th = this
         var newToDo = this.refs.toDoInput.value;
@@ -26,7 +21,7 @@ const AddNew = React.createClass({
         return (
             <div className="container">
                 <input ref="toDoInput" type="text" className="new-to-do new-item" placeholder="Add New To-Do Item" />
-                <button className="new-to-do add-new" onClick={this.handleSubmit}>+</button>
+                <button className="new-to-do add-new" onClick={this.handleSubmit.bind(this)}>+</button>
             </div>
         )
     }
