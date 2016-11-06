@@ -21481,9 +21481,9 @@
 	        };
 	    },
 	    componentDidMount: function componentDidMount() {
-	        // var th = this
+	        var th = this;
 	        this.serverRequest = Axios.get('https://fierce-wildwood-92925.herokuapp.com/list').then(function (result) {
-	            this.setState({
+	            th.setState({
 	                toDoItems: result.data.items
 	            });
 	        });
