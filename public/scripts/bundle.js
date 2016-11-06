@@ -48,15 +48,56 @@
 
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(34);
+	var Axios = __webpack_require__(173);
 	var Paper = __webpack_require__(172);
 	var AddNew = __webpack_require__(199);
 
-	var ToDoApp = React.createElement(
-	    'div',
-	    null,
-	    React.createElement(AddNew, null),
-	    React.createElement(Paper, null)
-	);
+	var ToDoApp = React.createClass({
+	    displayName: 'ToDoApp',
+
+	    getInitialState: function getInitialState() {
+	        return {
+	            toDoList: []
+	        };
+	    },
+	    componentDidMount: function componentDidMount() {
+	        var th = this;
+
+	        // GET REQUEST
+	        this.serverRequest = Axios.get('https://fierce-wildwood-92925.herokuapp.com/list').then(function (result) {
+	            th.setState({
+	                toDoList: result.data
+	            });
+	        });
+	    },
+	    componentWillUnmount: function componentWillUnmount() {
+	        this.serverRequest.abort();
+	    },
+	    handleSubmit: function handleSubmit(newToDo) {
+	        var th = this;
+
+	        if (!(newToDo === "")) {
+	            // POST REQUEST
+	            Axios.post('https://fierce-wildwood-92925.herokuapp.com/list', {
+	                "item": newToDo
+	            }).then(function (result) {
+	                th.setState({
+	                    toDoList: result.data
+	                });
+	            });
+	        }
+	        // Clear input
+	        this.refs.toDoInput.value = "";
+	    },
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            null,
+	            React.createElement(AddNew, { handleSubmit: this.handleSubmit }),
+	            React.createElement(Paper, { list: this.state.toDoList })
+	        );
+	    }
+	});
 
 	ReactDOM.render(ToDoApp, document.getElementById('app'));
 
@@ -21469,52 +21510,28 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var Axios = __webpack_require__(173);
 	var ListItem = __webpack_require__(198);
 
-	var Paper = React.createClass({
-	    displayName: 'Paper',
-
-	    getInitialState: function getInitialState() {
-	        return {
-	            toDoItems: []
-	        };
-	    },
-	    componentDidMount: function componentDidMount() {
-	        var th = this;
-	        this.serverRequest = Axios.get('https://fierce-wildwood-92925.herokuapp.com/list').then(function (result) {
-	            th.setState({
-	                toDoItems: result.data
-	            });
-	        });
-	    },
-	    componentWillUnmount: function componentWillUnmount() {
-	        this.serverRequest.abort();
-	    },
-	    handleClick: function handleClick() {
-	        return 0;
-	    },
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            { className: 'container paper' },
-	            React.createElement('div', { className: 'lines lines-left' }),
-	            React.createElement('div', { className: 'lines lines-right' }),
-	            React.createElement(
-	                'h2',
-	                { className: 'title' },
-	                'To-Do List'
-	            ),
-	            React.createElement(
-	                'ul',
-	                { className: 'list' },
-	                this.state.toDoItems.map(function (item, index) {
-	                    return React.createElement(ListItem, { key: index, item: item.item });
-	                })
-	            )
-	        );
-	    }
-	});
+	var Paper = function Paper(props) {
+	    return React.createElement(
+	        'div',
+	        { className: 'container paper' },
+	        React.createElement('div', { className: 'lines lines-left' }),
+	        React.createElement('div', { className: 'lines lines-right' }),
+	        React.createElement(
+	            'h2',
+	            { className: 'title' },
+	            'To-Do List'
+	        ),
+	        React.createElement(
+	            'ul',
+	            { className: 'list' },
+	            undefined.props.list.map(function (item, index) {
+	                return React.createElement(ListItem, { key: index, item: item.item });
+	            })
+	        )
+	    );
+	};
 
 	module.exports = Paper;
 
@@ -22986,18 +23003,9 @@
 	var AddNew = React.createClass({
 	    displayName: 'AddNew',
 
-	    handleSubmit: function handleSubmit() {
-	        var th = this;
+	    handleClick: function handleClick() {
 	        var newToDo = this.refs.toDoInput.value;
-
-	        if (!(newToDo === "")) {
-	            // POST REQUEST
-	            Axios.post('https://fierce-wildwood-92925.herokuapp.com/list', {
-	                "item": newToDo
-	            }).then(function (result) {
-	                th.forceUpdate();
-	            });
-	        }
+	        this.props.handleSubmit(newToDo);
 	    },
 	    render: function render() {
 	        return React.createElement(
@@ -23006,7 +23014,7 @@
 	            React.createElement('input', { ref: 'toDoInput', type: 'text', className: 'new-to-do new-item', placeholder: 'Add New To-Do Item' }),
 	            React.createElement(
 	                'button',
-	                { className: 'new-to-do add-new', onClick: this.handleSubmit.bind(null, this) },
+	                { className: 'new-to-do add-new', onClick: this.handleClick },
 	                '+'
 	            )
 	        );

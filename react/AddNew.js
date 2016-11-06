@@ -2,26 +2,15 @@ const React = require('react')
 const Axios = require('axios')
 
 const AddNew = React.createClass({
-    handleSubmit: function() {
-        var th = this
+    handleClick: function() {
         var newToDo = this.refs.toDoInput.value;
-
-        if (!(newToDo === "")) {
-        // POST REQUEST
-        Axios.post('https://fierce-wildwood-92925.herokuapp.com/list', {
-            "item": newToDo
-        })
-            .then(function(result) {
-                th.forceUpdate()
-            })
-        }
-
+        this.props.handleSubmit(newToDo)
     },
     render() {
         return (
             <div className="container">
                 <input ref="toDoInput" type="text" className="new-to-do new-item" placeholder="Add New To-Do Item" />
-                <button className="new-to-do add-new" onClick={this.handleSubmit.bind(null, this)}>+</button>
+                <button className="new-to-do add-new" onClick={this.handleClick}>+</button>
             </div>
         )
     }
