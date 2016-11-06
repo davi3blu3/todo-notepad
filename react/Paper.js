@@ -14,7 +14,7 @@ const Paper = React.createClass({
         Axios.get('https://fierce-wildwood-92925.herokuapp.com/list')
             .then(function(result) {
                 th.setState({
-                    toDoItems: result.data.items
+                    toDoItems: result.data
                 })
             })
     },
