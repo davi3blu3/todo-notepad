@@ -22987,7 +22987,7 @@
 	    displayName: 'AddNew',
 
 	    handleSubmit: function handleSubmit() {
-	        th = this;
+	        var th = this;
 	        var newToDo = this.refs.toDoInput.value;
 
 	        if (!(newToDo === "")) {

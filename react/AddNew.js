@@ -3,7 +3,7 @@ const Axios = require('axios')
 
 const AddNew = React.createClass({
     handleSubmit: function() {
-        th = this
+        var th = this
         var newToDo = this.refs.toDoInput.value;
 
         if (!(newToDo === "")) {
