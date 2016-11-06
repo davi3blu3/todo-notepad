@@ -21508,8 +21508,8 @@
 	            React.createElement(
 	                'ul',
 	                { className: 'list' },
-	                this.state.toDoItems.map(function (item) {
-	                    return React.createElement(ListItem, { key: item._id.$oid, item: item.item });
+	                this.state.toDoItems.map(function (item, index) {
+	                    return React.createElement(ListItem, { key: index, item: item.item });
 	                })
 	            )
 	        );
