@@ -45,6 +45,13 @@ function handleError(res, reason, message, code) {
  */
 
 app.get("/list", function(req, res) {
+  db.collection(TODO_LIST).find({}).toArray(function(err, docs) {
+    if (err) {
+      handleError(res, err.message, "Failed to get To Dos.");
+    } else {
+      res.status(200).json(docs);
+    }
+  });
 });
 
 app.post("/list", function(req, res) {
