@@ -11,7 +11,7 @@ const Paper = React.createClass({
     componentDidMount: function() {
         // var th = this
         this.serverRequest =
-        Axios.get('http://fierce-wildwood-92925.herokuapp.com/list')
+        Axios.get('https://fierce-wildwood-92925.herokuapp.com/list')
             .then(function(result) {
                 this.setState({
                     toDoItems: result.data.items
