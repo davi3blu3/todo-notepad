@@ -31,9 +31,9 @@ const Paper = React.createClass({
                 <div className="lines lines-right"></div>
                 <h2 className="title">To-Do List</h2>
                 <ul className="list">
-                    {this.state.toDoItems.map(function(item, index){
+                    {this.state.toDoItems.map(function(item){
                         return (
-                            <ListItem key={index} item={item} />
+                            <ListItem key={item._id.$oid} item={item.item} />
                         )
                     })}
                 </ul>
