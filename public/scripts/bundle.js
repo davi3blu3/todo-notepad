@@ -22991,7 +22991,8 @@
 	    //         "newToDo": ""
 	    //     }
 	    // },
-	    handleSubmit: function handleSubmit(e) {
+	    handleSubmit: function handleSubmit() {
+	        th = this;
 	        var newToDo = this.refs.toDoInput.value;
 
 	        if (!(newToDo === "")) {
@@ -22999,7 +23000,7 @@
 	            Axios.post('https://fierce-wildwood-92925.herokuapp.com/list', {
 	                "item": newToDo
 	            }).then(function (result) {
-	                this.forceUpdate();
+	                th.forceUpdate();
 	            });
 	        }
 	    },

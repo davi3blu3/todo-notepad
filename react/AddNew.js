@@ -7,7 +7,8 @@ const AddNew = React.createClass({
     //         "newToDo": ""
     //     }
     // },
-    handleSubmit: function(e) {
+    handleSubmit: function() {
+        th = this
         var newToDo = this.refs.toDoInput.value;
 
         if (!(newToDo === "")) {
@@ -16,7 +17,7 @@ const AddNew = React.createClass({
             "item": newToDo
         })
             .then(function(result) {
-                this.forceUpdate()
+                th.forceUpdate()
             })
         }
 
