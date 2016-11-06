@@ -49,7 +49,7 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(34);
 	var Paper = __webpack_require__(172);
-	var AddNew = __webpack_require__(198);
+	var AddNew = __webpack_require__(199);
 
 	var ToDoApp = React.createElement(
 	    'div',
@@ -21470,7 +21470,7 @@
 
 	var React = __webpack_require__(1);
 	var Axios = __webpack_require__(173);
-	var ListItem = __webpack_require__(199);
+	var ListItem = __webpack_require__(198);
 
 	var Paper = React.createClass({
 	    displayName: 'Paper',
@@ -21481,9 +21481,9 @@
 	        };
 	    },
 	    componentDidMount: function componentDidMount() {
-	        var th = this;
+	        // var th = this
 	        this.serverRequest = Axios.get('../react/data.json').then(function (result) {
-	            th.setState({
+	            this.setState({
 	                toDoItems: result.data.items
 	            });
 	        });
@@ -22940,6 +22940,44 @@
 /* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var ListItem = React.createClass({
+	    displayName: 'ListItem',
+	    getInitialState: function getInitialState() {
+	        return { 'done': '' };
+	    },
+	    handleCheck: function handleCheck() {
+	        this.state.done === '' ? this.setState({ 'done': 'complete' }) : this.setState({ 'done': '' });
+	    },
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            null,
+	            React.createElement(
+	                'li',
+	                null,
+	                React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'check', onClick: this.handleCheck }),
+	                React.createElement(
+	                    'span',
+	                    { className: this.state.done },
+	                    ' ',
+	                    this.props.item
+	                ),
+	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' })
+	            )
+	        );
+	    }
+	});
+
+	module.exports = ListItem;
+
+/***/ },
+/* 199 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 
 	var React = __webpack_require__(1);
@@ -22961,43 +22999,6 @@
 	});
 
 	module.exports = AddNew;
-
-/***/ },
-/* 199 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-
-	var ListItem = React.createClass({
-	    displayName: 'ListItem',
-	    getInitialState: function getInitialState() {
-	        return { 'done': '' };
-	    },
-	    handleClick: function handleClick() {
-	        this.state.done === '' ? this.setState({ 'done': 'complete' }) : this.setState({ 'done': '' });
-	    },
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            null,
-	            React.createElement(
-	                'li',
-	                null,
-	                React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'check', onClick: this.handleClick }),
-	                React.createElement(
-	                    'span',
-	                    { className: this.state.done },
-	                    this.props.item
-	                ),
-	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' })
-	            )
-	        );
-	    }
-	});
-
-	module.exports = ListItem;
 
 /***/ }
 /******/ ]);

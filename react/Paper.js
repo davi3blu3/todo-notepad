@@ -9,11 +9,11 @@ const Paper = React.createClass({
         }
     },
     componentDidMount: function() {
-        var th = this
+        // var th = this
         this.serverRequest =
         Axios.get('../react/data.json')
             .then(function(result) {
-                th.setState({
+                this.setState({
                     toDoItems: result.data.items
                 })
             })
