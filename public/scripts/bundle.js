@@ -22978,21 +22978,35 @@
 /* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var React = __webpack_require__(1);
+	var Axios = __webpack_require__(173);
 
 	var AddNew = React.createClass({
-	    displayName: "AddNew",
+	    displayName: 'AddNew',
+
+	    // getInitialState: function() {
+	    //     return {
+	    //         "newToDo": ""
+	    //     }
+	    // },
+	    handleSubmit: function handleSubmit(e) {
+	        var newToDo = this.refs.toDoInput.value;
+	        // POST REQUEST
+	        Axios.post('https://fierce-wildwood-92925.herokuapp.com/list').then(function (result) {
+	            this.forceUpdate();
+	        });
+	    },
 	    render: function render() {
 	        return React.createElement(
-	            "div",
-	            { className: "container" },
-	            React.createElement("input", { type: "text", className: "new-to-do new-item", placeholder: "Add New To-Do Item" }),
+	            'div',
+	            { className: 'container' },
+	            React.createElement('input', { ref: 'toDoInput', type: 'text', className: 'new-to-do new-item', placeholder: 'Add New To-Do Item' }),
 	            React.createElement(
-	                "button",
-	                { className: "new-to-do add-new" },
-	                "+"
+	                'button',
+	                { className: 'new-to-do add-new', onClick: this.handleSubmit },
+	                '+'
 	            )
 	        );
 	    }
