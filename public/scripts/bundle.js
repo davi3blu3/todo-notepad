@@ -23006,7 +23006,7 @@
 	            React.createElement('input', { ref: 'toDoInput', type: 'text', className: 'new-to-do new-item', placeholder: 'Add New To-Do Item' }),
 	            React.createElement(
 	                'button',
-	                { className: 'new-to-do add-new', onClick: this.handleSubmit.bind(this) },
+	                { className: 'new-to-do add-new', onClick: this.handleSubmit.bind(null, this) },
 	                '+'
 	            )
 	        );
