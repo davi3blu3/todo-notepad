@@ -34,7 +34,7 @@ const ToDoApp = React.createClass({
             "item": newToDo
         })
             .then(function(result) {
-                th.forceUpdate()
+                this.forceUpdate()
             })
         }
     },    

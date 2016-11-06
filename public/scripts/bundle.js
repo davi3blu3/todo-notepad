@@ -81,7 +81,7 @@
 	            Axios.post('https://fierce-wildwood-92925.herokuapp.com/list', {
 	                "item": newToDo
 	            }).then(function (result) {
-	                th.forceUpdate();
+	                this.forceUpdate();
 	            });
 	        }
 	    },
