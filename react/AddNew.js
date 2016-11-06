@@ -3,7 +3,8 @@ const Axios = require('axios')
 
 const AddNew = React.createClass({
     handleClick: function() {
-        var newToDo = this.refs.toDoInput.value;
+        var newToDo = this.refs.toDoInput.value
+        this.refs.toDoInput.value = ""
         this.props.handleSubmit(newToDo)
     },
     render() {

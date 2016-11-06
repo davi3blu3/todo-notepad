@@ -81,11 +81,9 @@
 	            Axios.post('https://fierce-wildwood-92925.herokuapp.com/list', {
 	                "item": newToDo
 	            }).then(function (result) {
-	                th.setState();
+	                th.forceUpdate();
 	            });
 	        }
-	        // Clear input
-	        this.refs.toDoInput.value = "";
 	    },
 	    render: function render() {
 	        return React.createElement(
@@ -23003,6 +23001,7 @@
 
 	    handleClick: function handleClick() {
 	        var newToDo = this.refs.toDoInput.value;
+	        this.refs.toDoInput.value = "";
 	        this.props.handleSubmit(newToDo);
 	    },
 	    render: function render() {

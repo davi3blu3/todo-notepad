@@ -34,11 +34,9 @@ const ToDoApp = React.createClass({
             "item": newToDo
         })
             .then(function(result) {
-                th.setState()
+                th.forceUpdate()
             })
         }
-        // Clear input
-        this.refs.toDoInput.value = ""
     },    
     render() {
         return (
