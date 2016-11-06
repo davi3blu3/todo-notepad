@@ -21524,7 +21524,7 @@
 	        React.createElement(
 	            'ul',
 	            { className: 'list' },
-	            undefined.props.list.map(function (item, index) {
+	            props.list.map(function (item, index) {
 	                return React.createElement(ListItem, { key: index, item: item.item });
 	            })
 	        )

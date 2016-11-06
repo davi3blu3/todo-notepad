@@ -7,7 +7,7 @@ const Paper = (props) => (
         <div className="lines lines-right"></div>
         <h2 className="title">To-Do List</h2>
         <ul className="list">
-            {this.props.list.map(function(item, index){
+            {props.list.map(function(item, index){
                 return (
                     <ListItem key={index} item={item.item} />
                 )
