@@ -21482,7 +21482,7 @@
 	    },
 	    componentDidMount: function componentDidMount() {
 	        // var th = this
-	        this.serverRequest = Axios.get('../react/data.json').then(function (result) {
+	        this.serverRequest = Axios.get('http://fierce-wildwood-92925.herokuapp.com/list').then(function (result) {
 	            this.setState({
 	                toDoItems: result.data.items
 	            });
