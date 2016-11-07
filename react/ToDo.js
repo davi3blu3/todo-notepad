@@ -35,7 +35,7 @@ const ToDoApp = React.createClass({
         })
             .then(function() {
                 th.setState({
-                    toDoList: this.state.toDoList.push(newToDo) 
+                    toDoList: th.state.toDoList.push(newToDo) 
                 })
             })
         }
