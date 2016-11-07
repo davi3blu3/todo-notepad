@@ -92,12 +92,19 @@
 	            th.getToDoList(th);
 	        });
 	    },
+	    updateToDo: function updateToDo(toDo, data) {
+	        var th = this;
+
+	        Axios.put('https://fierce-wildwood-92925.herokuapp.com/list/' + toDo, data).then(function (result) {
+	            th.getToDoList(th);
+	        });
+	    },
 	    render: function render() {
 	        return React.createElement(
 	            'div',
 	            null,
 	            React.createElement(AddNew, { submitNewToDo: this.submitNewToDo }),
-	            React.createElement(Paper, { deleteToDo: this.deleteToDo, list: this.state.toDoList })
+	            React.createElement(Paper, { list: this.state.toDoList, deleteToDo: this.deleteToDo, updateToDo: this.updateToDo })
 	        );
 	    }
 	});
@@ -22948,7 +22955,8 @@
 	            'ul',
 	            { className: 'list' },
 	            props.list.map(function (todo, index) {
-	                return React.createElement(ListItem, { key: index, id: todo._id, item: todo.item, deleteToDo: props.deleteToDo });
+	                return React.createElement(ListItem, { key: index, id: todo._id, item: todo.item, done: todo.complete,
+	                    deleteToDo: props.deleteToDo, updateToDo: props.updateToDo });
 	            })
 	        )
 	    );
@@ -22960,38 +22968,36 @@
 /* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(1);
 
 	var ListItem = React.createClass({
-	    displayName: 'ListItem',
-	    getInitialState: function getInitialState() {
-	        return { 'done': '' };
-	    },
+	    displayName: "ListItem",
 	    handleCheck: function handleCheck() {
-	        this.state.done === '' ? this.setState({ 'done': 'complete' }) : this.setState({ 'done': '' });
+	        var id = this.props.id;
+	        data = this.props.done ? { "complete": false } : { "complete": true };
+	        this.props.updateToDo(id, data);
 	    },
 	    handleEx: function handleEx() {
 	        var id = this.props.id;
-	        console.log(this.props);
 	        this.props.deleteToDo(id);
 	    },
 	    render: function render() {
 	        return React.createElement(
-	            'div',
+	            "div",
 	            null,
 	            React.createElement(
-	                'li',
+	                "li",
 	                null,
-	                React.createElement('img', { src: 'img/check.png', alt: 'check mark', className: 'check', onClick: this.handleCheck }),
+	                React.createElement("img", { src: "img/check.png", alt: "check mark", className: "check", onClick: this.handleCheck }),
 	                React.createElement(
-	                    'span',
-	                    { className: this.state.done },
-	                    ' ',
+	                    "span",
+	                    { className: this.props.done ? "complete" : "" },
+	                    " ",
 	                    this.props.item
 	                ),
-	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete', onClick: this.handleEx })
+	                React.createElement("img", { src: "img/delete.png", alt: "delete x mark", className: "delete", onClick: this.handleEx })
 	            )
 	        );
 	    }
@@ -23020,7 +23026,7 @@
 	        return React.createElement(
 	            'div',
 	            { className: 'container' },
-	            React.createElement('input', { ref: 'toDoInput', type: 'text', className: 'new-to-do new-item', placeholder: 'Add New To-Do' }),
+	            React.createElement('input', { ref: 'toDoInput', type: 'text', className: 'new-to-do new-item', placeholder: 'Add New ToDo' }),
 	            React.createElement(
 	                'button',
 	                { className: 'new-to-do add-new', onClick: this.handleAddClick },
