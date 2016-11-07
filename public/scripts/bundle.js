@@ -69,7 +69,7 @@
 	                toDoList: result.data
 	            });
 	        });
-	        console.log("get request", toDoList);
+	        console.log("get request", this.state.toDoList);
 	    },
 	    componentWillUnmount: function componentWillUnmount() {
 	        this.serverRequest.abort();
@@ -88,7 +88,7 @@
 	                        "completed": false
 	                    })
 	                });
-	                console.log("Post Request", toDoList);
+	                console.log("Post Request", this.state.toDoList);
 	            });
 	        }
 	    },
