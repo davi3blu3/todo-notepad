@@ -68,7 +68,7 @@
 	        this.serverRequest.abort();
 	    },
 	    getToDoList: function getToDoList(th) {
-	        th.serverRequest = Axios.get('https://fierce-wildwood-92925.herokuapp.com/list').then(function (result) {
+	        th.serverRequest = Axios.get('https://intense-ridge-57852.herokuapp.com/list').then(function (result) {
 	            th.setState({
 	                toDoList: result.data
 	            });
@@ -78,7 +78,7 @@
 	        var th = this;
 
 	        if (!(newToDo === "")) {
-	            Axios.post('https://fierce-wildwood-92925.herokuapp.com/list', {
+	            Axios.post('https://intense-ridge-57852.herokuapp.com/list', {
 	                "item": newToDo
 	            }).then(function () {
 	                th.getToDoList(th);
@@ -88,14 +88,14 @@
 	    deleteToDo: function deleteToDo(toDo) {
 	        var th = this;
 
-	        Axios.delete('https://fierce-wildwood-92925.herokuapp.com/list/' + toDo).then(function (result) {
+	        Axios.delete('https://intense-ridge-57852.herokuapp.com/list/' + toDo).then(function (result) {
 	            th.getToDoList(th);
 	        });
 	    },
 	    updateToDo: function updateToDo(toDo, data) {
 	        var th = this;
 
-	        Axios.put('https://fierce-wildwood-92925.herokuapp.com/list/' + toDo, data).then(function (result) {
+	        Axios.put('https://intense-ridge-57852.herokuapp.com/list/' + toDo, data).then(function (result) {
 	            th.getToDoList(th);
 	        });
 	    },
