@@ -22975,8 +22975,8 @@
 	        this.state.done === '' ? this.setState({ 'done': 'complete' }) : this.setState({ 'done': '' });
 	    },
 	    handleEx: function handleEx() {
-	        console.log("Delete clicked");
 	        var id = this.props.id;
+	        console.log(this.props);
 	        this.props.deleteToDo(id);
 	    },
 	    render: function render() {
