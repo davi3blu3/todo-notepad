@@ -22974,6 +22974,11 @@
 	    handleCheck: function handleCheck() {
 	        this.state.done === '' ? this.setState({ 'done': 'complete' }) : this.setState({ 'done': '' });
 	    },
+	    handleEx: function handleEx() {
+	        console.log("Delete clicked");
+	        var key = this.props.key;
+	        this.props.deleteToDo(key);
+	    },
 	    render: function render() {
 	        return React.createElement(
 	            'div',
@@ -22988,7 +22993,7 @@
 	                    ' ',
 	                    this.props.item
 	                ),
-	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete', onClick: this.props.deleteToDo(this.props.key) })
+	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete', onClick: this.handleEx })
 	            )
 	        );
 	    }

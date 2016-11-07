@@ -8,13 +8,18 @@ const ListItem = React.createClass({
     handleCheck(){
         this.state.done === '' ? this.setState({'done': 'complete'}) : this.setState({'done': ''})
     },
+    handleEx(){
+        console.log("Delete clicked")
+        var key = this.props.key
+        this.props.deleteToDo(key)
+    },
     render() {
         return (
             <div>
                 <li>
                     <img src="img/check.png" alt="check mark" className="check" onClick={this.handleCheck} />
                     <span className={this.state.done}> {this.props.item}</span>
-                    <img src="img/delete.png" alt="delete x mark" className="delete" onClick={ this.props.deleteToDo(this.props.key) }/>
+                    <img src="img/delete.png" alt="delete x mark" className="delete" onClick={this.handleEx}/>
                 </li>
             </div>
         )
