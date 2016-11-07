@@ -2,15 +2,13 @@ const React = require('react')
 
 
 const ListItem = React.createClass({
-    getInitialState(){
-        return {'done': ''}
-    },
     handleCheck(){
-        this.state.done === '' ? this.setState({'done': 'complete'}) : this.setState({'done': ''})
+        const id = this.props.id
+        data = this.props.done ? { "complete": false } : { "complete": true }
+        this.props.updateToDo(id, data)
     },
     handleEx(){
-        var id = this.props.id
-        console.log(this.props)
+        const id = this.props.id
         this.props.deleteToDo(id)
     },
     render() {
@@ -18,7 +16,7 @@ const ListItem = React.createClass({
             <div>
                 <li>
                     <img src="img/check.png" alt="check mark" className="check" onClick={this.handleCheck} />
-                    <span className={this.state.done}> {this.props.item}</span>
+                    <span className={this.props.done ? "complete" : ""}> {this.props.item}</span>
                     <img src="img/delete.png" alt="delete x mark" className="delete" onClick={this.handleEx} />
                 </li>
             </div>

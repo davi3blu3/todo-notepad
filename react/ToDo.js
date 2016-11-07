@@ -44,11 +44,19 @@ const ToDoApp = React.createClass({
             th.getToDoList(th)          
         })
     },
+    updateToDo: function(toDo, data) {
+        var th = this
+
+        Axios.put('https://fierce-wildwood-92925.herokuapp.com/list/' + toDo, data)
+            .then(function(result) {
+                th.getToDoList(th)          
+            })
+    },
     render() {
         return (
             <div>
                 <AddNew submitNewToDo={this.submitNewToDo} />
-                <Paper deleteToDo={this.deleteToDo} list={this.state.toDoList} />
+                <Paper list={this.state.toDoList} deleteToDo={this.deleteToDo} updateToDo={this.updateToDo} />
             </div>
         )
     }

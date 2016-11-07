@@ -57,7 +57,7 @@ app.get("/list", function(req, res) {
 app.post("/list", function(req, res) {
 
   var newToDo = req.body;
-  newToDo.complete = false; // could this be added client side?
+  newToDo.complete = ""; // could this be added client side?
 
   db.collection(TODO_LIST).insertOne(newToDo, function(err, doc) {
     if (err) {
@@ -74,6 +74,13 @@ app.post("/list", function(req, res) {
  */
 
 app.put("/list/:id", function(req, res) {
+  db.collection(TODO_LIST).update({_id: new ObjectID(req.params.id)}, req.params.data, function(err, result) {
+    if (err) {
+      handleError(res, err.message, "Failed to update To Do.")
+    } else {
+      res.status(204).end()
+    }
+  })
 });
 
 app.delete("/list/:id", function(req, res) {
