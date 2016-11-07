@@ -36,12 +36,12 @@ const ToDoApp = React.createClass({
             "item": newToDo
         })
             .then(function() {
-                // th.setState({
-                //     toDoList: th.state.toDoList.push({
-                //         "item": newToDo,
-                //         "completed": false
-                //     }) 
-                // })
+                th.setState({
+                    toDoList: th.state.toDoList.push({
+                        "item": newToDo,
+                        "complete": false
+                    }) 
+                })
                 console.log("Post Request", th.state.toDoList)
             })
         }
