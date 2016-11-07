@@ -33,8 +33,10 @@ const ToDoApp = React.createClass({
         Axios.post('https://fierce-wildwood-92925.herokuapp.com/list', {
             "item": newToDo
         })
-            .then(function(th) {
-                th.forceUpdate()
+            .then(function() {
+                th.setState({
+                    toDoList: this.state.toDoList.push(newToDo) 
+                })
             })
         }
     },    
