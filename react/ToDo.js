@@ -26,7 +26,7 @@ const ToDoApp = React.createClass({
     componentWillUnmount: function() {
         this.serverRequest.abort()
     },
-    handleSubmit: function(newToDo) {
+    submitNewToDo: function(newToDo) {
         var th = this
         
         if (!(newToDo === "")) {
@@ -46,7 +46,7 @@ const ToDoApp = React.createClass({
     render() {
         return (
             <div>
-                <AddNew handleSubmit={this.handleSubmit} />
+                <AddNew submitNewToDo={this.submitNewToDo} />
                 <Paper list={this.state.toDoList} />
             </div>
         )

@@ -9,7 +9,7 @@ const Paper = (props) => (
         <ul className="list">
             {props.list.map(function(item, index){
                 return (
-                    <ListItem key={index} item={item.item} />
+                    <ListItem key={item._id.$oid} item={item.item} />
                 )
             })}
         </ul>

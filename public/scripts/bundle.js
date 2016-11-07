@@ -73,7 +73,7 @@
 	    componentWillUnmount: function componentWillUnmount() {
 	        this.serverRequest.abort();
 	    },
-	    handleSubmit: function handleSubmit(newToDo) {
+	    submitNewToDo: function submitNewToDo(newToDo) {
 	        var th = this;
 
 	        if (!(newToDo === "")) {
@@ -93,7 +93,7 @@
 	        return React.createElement(
 	            'div',
 	            null,
-	            React.createElement(AddNew, { handleSubmit: this.handleSubmit }),
+	            React.createElement(AddNew, { submitNewToDo: this.submitNewToDo }),
 	            React.createElement(Paper, { list: this.state.toDoList })
 	        );
 	    }
@@ -21527,7 +21527,7 @@
 	            'ul',
 	            { className: 'list' },
 	            props.list.map(function (item, index) {
-	                return React.createElement(ListItem, { key: index, item: item.item });
+	                return React.createElement(ListItem, { key: item._id.$oid, item: item.item });
 	            })
 	        )
 	    );
@@ -23003,10 +23003,10 @@
 	var AddNew = React.createClass({
 	    displayName: 'AddNew',
 
-	    handleClick: function handleClick() {
+	    handleAddClick: function handleAddClick() {
 	        var newToDo = this.refs.toDoInput.value;
 	        this.refs.toDoInput.value = "";
-	        this.props.handleSubmit(newToDo);
+	        this.props.submitNewToDo(newToDo);
 	    },
 	    render: function render() {
 	        return React.createElement(
@@ -23015,7 +23015,7 @@
 	            React.createElement('input', { ref: 'toDoInput', type: 'text', className: 'new-to-do new-item', placeholder: 'Add New To-Do Item' }),
 	            React.createElement(
 	                'button',
-	                { className: 'new-to-do add-new', onClick: this.handleClick },
+	                { className: 'new-to-do add-new', onClick: this.handleAddClick },
 	                '+'
 	            )
 	        );
