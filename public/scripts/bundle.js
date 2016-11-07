@@ -22950,7 +22950,7 @@
 	            'ul',
 	            { className: 'list' },
 	            props.list.map(function (todo, index) {
-	                return React.createElement(ListItem, { key: todo._id.$oid, item: todo.item, deleteToDo: this.props.deleteToDo });
+	                return React.createElement(ListItem, { key: todo._id.$oid, item: todo.item, deleteToDo: props.deleteToDo });
 	            })
 	        )
 	    );
