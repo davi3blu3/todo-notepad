@@ -10,8 +10,8 @@ const ListItem = React.createClass({
     },
     handleEx(){
         console.log("Delete clicked")
-        var key = this.props.key
-        this.props.deleteToDo(key)
+        var id = this.props.id
+        this.props.deleteToDo(id)
     },
     render() {
         return (
