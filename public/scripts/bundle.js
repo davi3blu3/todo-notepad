@@ -23020,7 +23020,7 @@
 	        return React.createElement(
 	            'div',
 	            { className: 'container' },
-	            React.createElement('input', { ref: 'toDoInput', type: 'text', className: 'new-to-do new-item', placeholder: 'Add New To-Do Item' }),
+	            React.createElement('input', { ref: 'toDoInput', type: 'text', className: 'new-to-do new-item', placeholder: 'Add New To-Do' }),
 	            React.createElement(
 	                'button',
 	                { className: 'new-to-do add-new', onClick: this.handleAddClick },
