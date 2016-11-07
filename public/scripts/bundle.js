@@ -82,12 +82,12 @@
 	            Axios.post('https://fierce-wildwood-92925.herokuapp.com/list', {
 	                "item": newToDo
 	            }).then(function () {
-	                th.setState({
-	                    toDoList: th.state.toDoList.push({
-	                        "item": newToDo,
-	                        "completed": false
-	                    })
-	                });
+	                // th.setState({
+	                //     toDoList: th.state.toDoList.push({
+	                //         "item": newToDo,
+	                //         "completed": false
+	                //     }) 
+	                // })
 	                console.log("Post Request", th.state.toDoList);
 	            });
 	        }
