@@ -22976,7 +22976,7 @@
 	    displayName: "ListItem",
 	    handleCheck: function handleCheck() {
 	        var id = this.props.id;
-	        data = this.props.done ? { "complete": false } : { "complete": true };
+	        var data = this.props.done ? { "complete": false } : { "complete": true };
 	        this.props.updateToDo(id, data);
 	    },
 	    handleEx: function handleEx() {

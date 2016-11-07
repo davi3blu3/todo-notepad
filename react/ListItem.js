@@ -4,7 +4,7 @@ const React = require('react')
 const ListItem = React.createClass({
     handleCheck(){
         const id = this.props.id
-        data = this.props.done ? { "complete": false } : { "complete": true }
+        const data = this.props.done ? { "complete": false } : { "complete": true }
         this.props.updateToDo(id, data)
     },
     handleEx(){
