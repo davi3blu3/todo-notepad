@@ -21,6 +21,7 @@ const ToDoApp = React.createClass({
                     toDoList: result.data
                 })
             })
+            console.log("get request", toDoList)
     },
     componentWillUnmount: function() {
         this.serverRequest.abort()
@@ -40,6 +41,7 @@ const ToDoApp = React.createClass({
                         "completed": false
                     }) 
                 })
+                console.log("Post Request", toDoList)
             })
         }
     },    
