@@ -12,20 +12,20 @@ const ToDoApp = React.createClass({
     },
     componentDidMount: function() {
         var th = this
-
-        // GET REQUEST
-        this.serverRequest = Axios
+        this.getToDoList(th)
+    },
+    componentWillUnmount: function() {
+        this.serverRequest.abort()
+    },
+    getToDoList: function(th) {
+        th.serverRequest = Axios
             .get('https://fierce-wildwood-92925.herokuapp.com/list')
             .then(function(result) {
                 th.setState({
                     toDoList: result.data
                 })
             })
-            
-    },
-    componentWillUnmount: function() {
-        this.serverRequest.abort()
-    },
+    },    
     submitNewToDo: function(newToDo) {
         var th = this
         
@@ -34,12 +34,7 @@ const ToDoApp = React.createClass({
             Axios.post('https://fierce-wildwood-92925.herokuapp.com/list', {
                 "item": newToDo
             }).then(function() {
-                Axios.get('https://fierce-wildwood-92925.herokuapp.com/list')
-                    .then(function(result) {
-                        th.setState({
-                            toDoList: result.data
-                        })
-                    })
+                this.getToDoList(th)
             })
         }
     },
