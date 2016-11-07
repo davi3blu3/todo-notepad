@@ -20,8 +20,9 @@ const ToDoApp = React.createClass({
                 th.setState({
                     toDoList: result.data
                 })
+                console.log("get request result", result.data)
             })
-            console.log("get request", toDoList)
+            
     },
     componentWillUnmount: function() {
         this.serverRequest.abort()
@@ -41,7 +42,7 @@ const ToDoApp = React.createClass({
                         "completed": false
                     }) 
                 })
-                console.log("Post Request", toDoList)
+                console.log("Post Request", th.state.toDoList)
             })
         }
     },    

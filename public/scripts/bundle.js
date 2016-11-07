@@ -68,8 +68,8 @@
 	            th.setState({
 	                toDoList: result.data
 	            });
+	            console.log("get request result", result.data);
 	        });
-	        console.log("get request", this.state.toDoList);
 	    },
 	    componentWillUnmount: function componentWillUnmount() {
 	        this.serverRequest.abort();
@@ -88,7 +88,7 @@
 	                        "completed": false
 	                    })
 	                });
-	                console.log("Post Request", this.state.toDoList);
+	                console.log("Post Request", th.state.toDoList);
 	            });
 	        }
 	    },
