@@ -9,7 +9,7 @@ const Paper = (props) => (
         <ul className="list">
             {props.list.map(function(todo, index){
                 return (
-                    <ListItem key={index} id={todo._id.$oid} item={todo.item} deleteToDo={props.deleteToDo} />
+                    <ListItem key={index} id={todo._id} item={todo.item} deleteToDo={props.deleteToDo} />
                 )
             })}
         </ul>
