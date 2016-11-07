@@ -4,7 +4,9 @@ const React = require('react')
 const ListItem = React.createClass({
     handleCheck(){
         const data = {
-            _id: this.props.id,
+            _id: {
+                $oid: this.props.id
+            },
             item: this.props.item,
         }
         data.complete = this.props.done ? false : true

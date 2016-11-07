@@ -22976,7 +22976,9 @@
 	    displayName: "ListItem",
 	    handleCheck: function handleCheck() {
 	        var data = {
-	            _id: this.props.id,
+	            _id: {
+	                $oid: this.props.id
+	            },
 	            item: this.props.item
 	        };
 	        data.complete = this.props.done ? false : true;
