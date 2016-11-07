@@ -3,10 +3,13 @@ const React = require('react')
 
 const ListItem = React.createClass({
     handleCheck(){
-        const id = this.props.id
-        const data = this.props.done ? { "complete": false } : { "complete": true }
+        const data = {
+            _id: this.props.id,
+            item: this.props.item,
+        }
+        data.complete = this.props.done ? false : true
         console.log(data)
-        this.props.updateToDo(id, data)
+        this.props.updateToDo(this.props.id, data)
     },
     handleEx(){
         const id = this.props.id

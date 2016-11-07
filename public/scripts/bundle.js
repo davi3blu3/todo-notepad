@@ -22975,10 +22975,13 @@
 	var ListItem = React.createClass({
 	    displayName: "ListItem",
 	    handleCheck: function handleCheck() {
-	        var id = this.props.id;
-	        var data = this.props.done ? { "complete": false } : { "complete": true };
+	        var data = {
+	            _id: this.props.id,
+	            item: this.props.item
+	        };
+	        data.complete = this.props.done ? false : true;
 	        console.log(data);
-	        this.props.updateToDo(id, data);
+	        this.props.updateToDo(this.props.id, data);
 	    },
 	    handleEx: function handleEx() {
 	        var id = this.props.id;
