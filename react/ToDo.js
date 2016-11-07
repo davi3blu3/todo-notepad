@@ -41,9 +41,7 @@ const ToDoApp = React.createClass({
 
         Axios.delete('https://fierce-wildwood-92925.herokuapp.com/list/' + toDo)
         .then(function(result) {
-            th.setState({
-                toDoList: result.data
-            })            
+            th.getToDoList(th)          
         })
     },
     render() {
