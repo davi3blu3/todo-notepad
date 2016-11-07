@@ -84,6 +84,7 @@
 	            }).then(function () {
 	                th.setState({
 	                    toDoList: th.state.toDoList.push({
+	                        "_id": "581fe51a527a8e0011e1OMFG",
 	                        "item": newToDo,
 	                        "complete": false
 	                    })
