@@ -78,7 +78,6 @@
 	        var th = this;
 
 	        if (!(newToDo === "")) {
-	            // POST REQUEST
 	            Axios.post('https://fierce-wildwood-92925.herokuapp.com/list', {
 	                "item": newToDo
 	            }).then(function () {
@@ -86,12 +85,21 @@
 	            });
 	        }
 	    },
+	    deleteToDo: function deleteToDo(toDo) {
+	        var th = this;
+
+	        Axios.delete('https://fierce-wildwood-92925.herokuapp.com/list/' + toDo).then(function (result) {
+	            th.setState({
+	                toDoList: result.data
+	            });
+	        });
+	    },
 	    render: function render() {
 	        return React.createElement(
 	            'div',
 	            null,
 	            React.createElement(AddNew, { submitNewToDo: this.submitNewToDo }),
-	            React.createElement(Paper, { list: this.state.toDoList })
+	            React.createElement(Paper, { deleteToDo: this.deleteToDo, list: this.state.toDoList })
 	        );
 	    }
 	});
@@ -22941,8 +22949,8 @@
 	        React.createElement(
 	            'ul',
 	            { className: 'list' },
-	            props.list.map(function (item, index) {
-	                return React.createElement(ListItem, { key: item._id.$oid, item: item.item });
+	            props.list.map(function (todo, index) {
+	                return React.createElement(ListItem, { key: todo._id.$oid, item: todo.item, deleteToDo: this.props.deleteToDo });
 	            })
 	        )
 	    );
@@ -22980,7 +22988,7 @@
 	                    ' ',
 	                    this.props.item
 	                ),
-	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete' })
+	                React.createElement('img', { src: 'img/delete.png', alt: 'delete x mark', className: 'delete', onClick: this.props.deleteToDo(this.props.key) })
 	            )
 	        );
 	    }

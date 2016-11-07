@@ -14,7 +14,7 @@ const ListItem = React.createClass({
                 <li>
                     <img src="img/check.png" alt="check mark" className="check" onClick={this.handleCheck} />
                     <span className={this.state.done}> {this.props.item}</span>
-                    <img src="img/delete.png" alt="delete x mark" className="delete" />
+                    <img src="img/delete.png" alt="delete x mark" className="delete" onClick={ this.props.deleteToDo(this.props.key) }/>
                 </li>
             </div>
         )

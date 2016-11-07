@@ -7,9 +7,9 @@ const Paper = (props) => (
         <div className="lines lines-right"></div>
         <h2 className="title">To-Do List</h2>
         <ul className="list">
-            {props.list.map(function(item, index){
+            {props.list.map(function(todo, index){
                 return (
-                    <ListItem key={item._id.$oid} item={item.item} />
+                    <ListItem key={todo._id.$oid} item={todo.item} deleteToDo={this.props.deleteToDo} />
                 )
             })}
         </ul>

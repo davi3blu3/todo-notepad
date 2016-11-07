@@ -73,11 +73,15 @@ app.post("/list", function(req, res) {
  *    DELETE: deletes contact by id
  */
 
-app.get("/list/:id", function(req, res) {
-});
-
 app.put("/list/:id", function(req, res) {
 });
 
 app.delete("/list/:id", function(req, res) {
+  db.collection(TODO_LIST).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
+    if (err) {
+      handleError(res, err.message, "Failed to delete To Do.")
+    } else {
+      res.status(204).end()
+    }
+  })
 });

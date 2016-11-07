@@ -18,8 +18,7 @@ const ToDoApp = React.createClass({
         this.serverRequest.abort()
     },
     getToDoList: function(th) {
-        th.serverRequest = Axios
-            .get('https://fierce-wildwood-92925.herokuapp.com/list')
+        th.serverRequest = Axios.get('https://fierce-wildwood-92925.herokuapp.com/list')
             .then(function(result) {
                 th.setState({
                     toDoList: result.data
@@ -30,7 +29,6 @@ const ToDoApp = React.createClass({
         var th = this
         
         if (!(newToDo === "")) {
-            // POST REQUEST
             Axios.post('https://fierce-wildwood-92925.herokuapp.com/list', {
                 "item": newToDo
             }).then(function() {
@@ -38,11 +36,21 @@ const ToDoApp = React.createClass({
             })
         }
     },
+    deleteToDo: function(toDo) {
+        var th = this
+
+        Axios.delete('https://fierce-wildwood-92925.herokuapp.com/list/' + toDo)
+        .then(function(result) {
+            th.setState({
+                toDoList: result.data
+            })            
+        })
+    },
     render() {
         return (
             <div>
                 <AddNew submitNewToDo={this.submitNewToDo} />
-                <Paper list={this.state.toDoList} />
+                <Paper deleteToDo={this.deleteToDo} list={this.state.toDoList} />
             </div>
         )
     }
