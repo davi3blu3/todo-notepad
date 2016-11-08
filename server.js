@@ -75,9 +75,12 @@ app.post("/list", function(req, res) {
  */
 
 app.put("/list/:id", function(req, res) {
-  db.collection(TODO_LIST).updateOne({_id: new ObjectID(req.params.id)}, req.body, function(err, result) {
+  const updateDoc = req.body
+  delete updateDoc._id
+
+  db.collection(TODO_LIST).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, result) {
     if (err) {
-      handleError(res, err.message, req.body)
+      handleError(res, err.message, "Failed to update To Do.")
     } else {
       res.status(204).end()
     }
