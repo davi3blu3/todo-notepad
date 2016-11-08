@@ -36,6 +36,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
   console.log("ERROR: " + reason);
+  console.log("MESSAGE: " + message);
   res.status(code || 500).json({"error": message});
 }
 
@@ -74,7 +75,7 @@ app.post("/list", function(req, res) {
  */
 
 app.put("/list/:id", function(req, res) {
-  db.collection(TODO_LIST).updateOne({_id: new ObjectID(req.params.id)}, req.params.data, function(err, result) {
+  db.collection(TODO_LIST).updateOne({_id: new ObjectID(req.params.id)}, req.body, function(err, result) {
     if (err) {
       handleError(res, err.message, "Failed to update To Do.")
     } else {
