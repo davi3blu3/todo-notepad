@@ -3,7 +3,7 @@ const React = require('react')
 
 const ListItem = React.createClass({
     handleCheck(){
-        const id = this.props.data.id
+        const id = this.props.data._id
         const newData = this.props.data
         newData.complete = this.props.data.done ? false : true
         console.log(this.props.data)
@@ -11,7 +11,7 @@ const ListItem = React.createClass({
         this.props.updateToDo(id, newData)
     },
     handleEx(){
-        const id = this.props.data.id
+        const id = this.props.data._id
         this.props.deleteToDo(id)
     },
     render() {

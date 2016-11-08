@@ -22975,7 +22975,7 @@
 	var ListItem = React.createClass({
 	    displayName: "ListItem",
 	    handleCheck: function handleCheck() {
-	        var id = this.props.data.id;
+	        var id = this.props.data._id;
 	        var newData = this.props.data;
 	        newData.complete = this.props.data.done ? false : true;
 	        console.log(this.props.data);
@@ -22983,7 +22983,7 @@
 	        this.props.updateToDo(id, newData);
 	    },
 	    handleEx: function handleEx() {
-	        var id = this.props.data.id;
+	        var id = this.props.data._id;
 	        this.props.deleteToDo(id);
 	    },
 	    render: function render() {
