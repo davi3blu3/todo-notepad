@@ -22955,8 +22955,8 @@
 	            'ul',
 	            { className: 'list' },
 	            props.list.map(function (todo, index) {
-	                return React.createElement(ListItem, { key: index, id: todo._id, item: todo.item, done: todo.complete,
-	                    deleteToDo: props.deleteToDo, updateToDo: props.updateToDo });
+	                return React.createElement(ListItem, { key: index, data: todo, deleteToDo: props.deleteToDo,
+	                    updateToDo: props.updateToDo });
 	            })
 	        )
 	    );
@@ -22975,18 +22975,14 @@
 	var ListItem = React.createClass({
 	    displayName: "ListItem",
 	    handleCheck: function handleCheck() {
-	        var data = {
-	            _id: {
-	                $oid: this.props.id
-	            },
-	            item: this.props.item
-	        };
-	        data.complete = this.props.done ? false : true;
+	        var id = this.props.data.id;
+	        var newData = this.props.data;
+	        newData.complete = this.props.data.done ? false : true;
 	        console.log(data);
-	        this.props.updateToDo(this.props.id, data);
+	        this.props.updateToDo(id, newData);
 	    },
 	    handleEx: function handleEx() {
-	        var id = this.props.id;
+	        var id = this.props.data.id;
 	        this.props.deleteToDo(id);
 	    },
 	    render: function render() {
@@ -22999,9 +22995,9 @@
 	                React.createElement("img", { src: "img/check.png", alt: "check mark", className: "check", onClick: this.handleCheck }),
 	                React.createElement(
 	                    "span",
-	                    { className: this.props.done ? "complete" : "" },
+	                    { className: this.props.data.done ? "complete" : "" },
 	                    " ",
-	                    this.props.item
+	                    this.props.data.item
 	                ),
 	                React.createElement("img", { src: "img/delete.png", alt: "delete x mark", className: "delete", onClick: this.handleEx })
 	            )
