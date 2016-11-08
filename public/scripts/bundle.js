@@ -22977,7 +22977,7 @@
 	    handleCheck: function handleCheck() {
 	        var id = this.props.data._id;
 	        var newData = this.props.data;
-	        newData.complete = this.props.data.done ? true : false;
+	        newData.complete = this.props.data.done ? false : true;
 	        console.log(this.props.data);
 	        console.log(newData);
 	        this.props.updateToDo(id, newData);
