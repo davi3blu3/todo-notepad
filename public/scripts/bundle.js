@@ -22999,7 +22999,7 @@
 	                React.createElement("img", { src: "img/check.png", alt: "check mark", className: "check", onClick: this.handleCheck }),
 	                React.createElement(
 	                    "span",
-	                    { className: this.getClassNames },
+	                    { className: this.getClassNames() },
 	                    " ",
 	                    this.props.data.item
 	                ),

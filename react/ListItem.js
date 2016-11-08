@@ -22,7 +22,7 @@ const ListItem = React.createClass({
             <div>
                 <li>
                     <img src="img/check.png" alt="check mark" className="check" onClick={this.handleCheck} />
-                    <span className={this.getClassNames}> {this.props.data.item}</span>
+                    <span className={this.getClassNames()}> {this.props.data.item}</span>
                     <img src="img/delete.png" alt="delete x mark" className="delete" onClick={this.handleEx} />
                 </li>
             </div>
