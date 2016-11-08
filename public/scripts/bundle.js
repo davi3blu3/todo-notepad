@@ -22978,7 +22978,8 @@
 	        var id = this.props.data.id;
 	        var newData = this.props.data;
 	        newData.complete = this.props.data.done ? false : true;
-	        console.log(data);
+	        console.log(this.props.data);
+	        console.log(newData);
 	        this.props.updateToDo(id, newData);
 	    },
 	    handleEx: function handleEx() {

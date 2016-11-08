@@ -6,7 +6,8 @@ const ListItem = React.createClass({
         const id = this.props.data.id
         const newData = this.props.data
         newData.complete = this.props.data.done ? false : true
-        console.log(data)
+        console.log(this.props.data)
+        console.log(newData)
         this.props.updateToDo(id, newData)
     },
     handleEx(){
