@@ -22986,10 +22986,10 @@
 	        var id = this.props.data._id;
 	        this.props.deleteToDo(id);
 	    },
+	    getClassNames: function getClassNames() {
+	        return this.props.data.complete ? "complete" : "";
+	    },
 	    render: function render() {
-	        function getClassNames() {
-	            return this.props.data.complete ? "complete" : "";
-	        }
 	        return React.createElement(
 	            "div",
 	            null,
@@ -22999,7 +22999,7 @@
 	                React.createElement("img", { src: "img/check.png", alt: "check mark", className: "check", onClick: this.handleCheck }),
 	                React.createElement(
 	                    "span",
-	                    { className: getClassNames },
+	                    { className: this.getClassNames },
 	                    " ",
 	                    this.props.data.item
 	                ),

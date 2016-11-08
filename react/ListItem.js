@@ -14,15 +14,15 @@ const ListItem = React.createClass({
         const id = this.props.data._id
         this.props.deleteToDo(id)
     },
+    getClassNames(){
+        return this.props.data.complete ? "complete" : ""
+    },
     render() {
-        function getClassNames() {
-            return this.props.data.complete ? "complete" : ""
-        }
         return (
             <div>
                 <li>
                     <img src="img/check.png" alt="check mark" className="check" onClick={this.handleCheck} />
-                    <span className={getClassNames}> {this.props.data.item}</span>
+                    <span className={this.getClassNames}> {this.props.data.item}</span>
                     <img src="img/delete.png" alt="delete x mark" className="delete" onClick={this.handleEx} />
                 </li>
             </div>
