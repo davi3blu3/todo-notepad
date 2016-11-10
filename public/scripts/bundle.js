@@ -22987,16 +22987,13 @@
 	        return props.data.complete ? "complete" : "";
 	    };
 
-	    var img = void 0;
 	    return React.createElement(
 	        "div",
 	        null,
 	        React.createElement(
 	            "li",
 	            null,
-	            React.createElement("img", { ref: function ref(node) {
-	                    img = node;
-	                }, src: "img/check.png", alt: "check mark", className: "check",
+	            React.createElement("img", { src: "img/check.png", alt: "check mark", className: "check",
 	                onClick: handleCheck }),
 	            React.createElement(
 	                "span",
