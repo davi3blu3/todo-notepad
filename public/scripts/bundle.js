@@ -78,7 +78,7 @@
 	        var th = this;
 
 	        if (!(newToDo === "")) {
-	            Axios.post('https://intense-ridge-57852.herokuapp.com/list', {
+	            Axios.post('/list', {
 	                "item": newToDo
 	            }).then(function () {
 	                th.getToDoList(th);
@@ -88,14 +88,14 @@
 	    deleteToDo: function deleteToDo(toDo) {
 	        var th = this;
 
-	        Axios.delete('https://intense-ridge-57852.herokuapp.com/list/' + toDo).then(function (result) {
+	        Axios.delete('/list' + toDo).then(function (result) {
 	            th.getToDoList(th);
 	        });
 	    },
 	    updateToDo: function updateToDo(toDo, data) {
 	        var th = this;
 
-	        Axios.put('https://intense-ridge-57852.herokuapp.com/list/' + toDo, data).then(function (result) {
+	        Axios.put('/list' + toDo, data).then(function (result) {
 	            th.getToDoList(th);
 	        });
 	    },

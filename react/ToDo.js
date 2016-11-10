@@ -29,7 +29,7 @@ const ToDoApp = React.createClass({
         var th = this
         
         if (!(newToDo === "")) {
-            Axios.post('https://intense-ridge-57852.herokuapp.com/list', {
+            Axios.post('/list', {
                 "item": newToDo
             }).then(function() {
                 th.getToDoList(th)
@@ -39,7 +39,7 @@ const ToDoApp = React.createClass({
     deleteToDo: function(toDo) {
         var th = this
 
-        Axios.delete('https://intense-ridge-57852.herokuapp.com/list/' + toDo)
+        Axios.delete('/list' + toDo)
         .then(function(result) {
             th.getToDoList(th)          
         })
@@ -47,7 +47,7 @@ const ToDoApp = React.createClass({
     updateToDo: function(toDo, data) {
         var th = this
 
-        Axios.put('https://intense-ridge-57852.herokuapp.com/list/' + toDo, data)
+        Axios.put('/list' + toDo, data)
             .then(function(result) {
                 th.getToDoList(th)          
             })
