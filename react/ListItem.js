@@ -10,7 +10,7 @@ const ListItem = (props) => {
     }
     const handleEx = () => {
         const id = props.data._id
-        this.props.deleteToDo(id)
+        props.deleteToDo(id)
     }
     const getClassNames = () => {
         return props.data.complete ? "complete" : ""
@@ -23,7 +23,7 @@ const ListItem = (props) => {
                 <img ref={(node) => {img = node}} src="img/check.png" alt="check mark" className="check" 
                     onClick={handleCheck} />
                 <span className={getClassNames()}> {props.data.item}</span>
-                <img ref={(node) => {img = node}} src="img/delete.png" alt="delete x mark" className="delete" onClick={handleEx} />
+                <img src="img/delete.png" alt="delete x mark" className="delete" onClick={handleEx} />
             </li>
         </div>
     )

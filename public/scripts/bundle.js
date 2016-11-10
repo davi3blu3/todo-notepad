@@ -22981,7 +22981,7 @@
 	    };
 	    var handleEx = function handleEx() {
 	        var id = props.data._id;
-	        undefined.props.deleteToDo(id);
+	        props.deleteToDo(id);
 	    };
 	    var getClassNames = function getClassNames() {
 	        return props.data.complete ? "complete" : "";
@@ -23004,9 +23004,7 @@
 	                " ",
 	                props.data.item
 	            ),
-	            React.createElement("img", { ref: function ref(node) {
-	                    img = node;
-	                }, src: "img/delete.png", alt: "delete x mark", className: "delete", onClick: handleEx })
+	            React.createElement("img", { src: "img/delete.png", alt: "delete x mark", className: "delete", onClick: handleEx })
 	        )
 	    );
 	};
