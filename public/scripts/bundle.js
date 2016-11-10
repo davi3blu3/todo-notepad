@@ -22974,33 +22974,37 @@
 
 	var ListItem = function ListItem(props) {
 	    var handleCheck = function handleCheck() {
-	        var id = undefined.props.data._id;
-	        var newData = undefined.props.data;
-	        newData.complete = undefined.props.data.complete ? false : true;
-	        undefined.props.updateToDo(id, newData);
+	        var id = props.data._id;
+	        var newData = props.data;
+	        newData.complete = props.data.complete ? false : true;
+	        props.updateToDo(id, newData);
 	    };
 	    var handleEx = function handleEx() {
-	        var id = undefined.props.data._id;
+	        var id = props.data._id;
 	        undefined.props.deleteToDo(id);
 	    };
 	    var getClassNames = function getClassNames() {
-	        return undefined.props.data.complete ? "complete" : "";
+	        return props.data.complete ? "complete" : "";
 	    };
 
+	    var img = void 0;
 	    return React.createElement(
 	        "div",
 	        null,
 	        React.createElement(
 	            "li",
 	            null,
-	            React.createElement("img", { src: "img/check.png", alt: "check mark", className: "check", onClick: undefined.handleCheck }),
+	            React.createElement("img", { ref: function ref(node) {
+	                    img = node;
+	                }, src: "img/check.png", alt: "check mark", className: "check",
+	                onClick: handleCheck }),
 	            React.createElement(
 	                "span",
-	                { className: undefined.getClassNames() },
+	                { className: getClassNames() },
 	                " ",
-	                undefined.props.data.item
+	                props.data.item
 	            ),
-	            React.createElement("img", { src: "img/delete.png", alt: "delete x mark", className: "delete", onClick: undefined.handleEx })
+	            React.createElement("img", { src: "img/delete.png", alt: "delete x mark", className: "delete", onClick: handleEx })
 	        )
 	    );
 	};

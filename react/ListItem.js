@@ -3,25 +3,27 @@ const React = require('react')
 
 const ListItem = (props) => {
     const handleCheck = () => {
-        const id = this.props.data._id
-        let newData = this.props.data
-        newData.complete = (this.props.data.complete ? false : true)
-        this.props.updateToDo(id, newData)
+        const id = props.data._id
+        let newData = props.data
+        newData.complete = (props.data.complete ? false : true)
+        props.updateToDo(id, newData)
     }
     const handleEx = () => {
-        const id = this.props.data._id
+        const id = props.data._id
         this.props.deleteToDo(id)
     }
     const getClassNames = () => {
-        return this.props.data.complete ? "complete" : ""
+        return props.data.complete ? "complete" : ""
     }
 
+    let img;
     return (
         <div>
             <li>
-                <img src="img/check.png" alt="check mark" className="check" onClick={this.handleCheck} />
-                <span className={this.getClassNames()}> {this.props.data.item}</span>
-                <img src="img/delete.png" alt="delete x mark" className="delete" onClick={this.handleEx} />
+                <img ref={(node) => {img = node}} src="img/check.png" alt="check mark" className="check" 
+                    onClick={handleCheck} />
+                <span className={getClassNames()}> {props.data.item}</span>
+                <img src="img/delete.png" alt="delete x mark" className="delete" onClick={handleEx} />
             </li>
         </div>
     )
