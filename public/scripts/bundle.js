@@ -22979,7 +22979,7 @@
 	        var status = this.props.data.complete;
 	        status === "complete" ? "" : "complete";
 	        console.log(status);
-	        this.props.updateToDo(id, status);
+	        this.props.updateToDo(id, this.props.data);
 	    },
 	    handleEx: function handleEx() {
 	        var id = this.props.data._id;
