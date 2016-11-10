@@ -22972,38 +22972,42 @@
 
 	var React = __webpack_require__(1);
 
-	var ListItem = React.createClass({
-	    displayName: "ListItem",
-	    handleCheck: function handleCheck() {
-	        var id = this.props.data._id;
-	        var status = this.props.data.complete;
-	        status === "complete" ? "" : "complete";
-	        console.log(status);
-	        this.props.updateToDo(id, this.props.data);
-	    },
-	    handleEx: function handleEx() {
-	        var id = this.props.data._id;
-	        this.props.deleteToDo(id);
-	    },
-	    render: function render() {
-	        return React.createElement(
-	            "div",
+	var ListItem = function ListItem(props) {
+	    var handleCheck = function handleCheck() {
+	        var id = props.data._id;
+	        var newData = props.data;
+	        newData.complete = props.data.complete ? false : true;
+	        props.updateToDo(id, newData);
+	    };
+	    var handleEx = function handleEx() {
+	        var id = props.data._id;
+	        props.deleteToDo(id);
+	    };
+	    var getClassNames = function getClassNames() {
+	        return props.data.complete ? "complete" : "";
+	    };
+
+	    var img = void 0;
+	    return React.createElement(
+	        "div",
+	        null,
+	        React.createElement(
+	            "li",
 	            null,
+	            React.createElement("img", { ref: function ref(node) {
+	                    img = node;
+	                }, src: "img/check.png", alt: "check mark", className: "check",
+	                onClick: handleCheck }),
 	            React.createElement(
-	                "li",
-	                null,
-	                React.createElement("img", { src: "img/check.png", alt: "check mark", className: "check", onClick: this.handleCheck }),
-	                React.createElement(
-	                    "span",
-	                    { className: this.props.data.complete },
-	                    " ",
-	                    this.props.data.item
-	                ),
-	                React.createElement("img", { src: "img/delete.png", alt: "delete x mark", className: "delete", onClick: this.handleEx })
-	            )
-	        );
-	    }
-	});
+	                "span",
+	                { className: getClassNames() },
+	                " ",
+	                props.data.item
+	            ),
+	            React.createElement("img", { src: "img/delete.png", alt: "delete x mark", className: "delete", onClick: handleEx })
+	        )
+	    );
+	};
 
 	module.exports = ListItem;
 
@@ -23011,32 +23015,38 @@
 /* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(1);
-	var Axios = __webpack_require__(172);
 
-	var AddNew = React.createClass({
-	    displayName: 'AddNew',
+	var AddNew = function AddNew(props) {
+	    var handleAddClick = function handleAddClick() {
+	        var newToDo = input.value;
+	        input.value = "";
+	        props.submitNewToDo(newToDo);
+	    };
+	    var handleKeyboad = function handleKeyboad(event) {
+	        if (event.keyCode == 13) {
+	            var newToDo = input.value;
+	            input.value = "";
+	            undefined.props.submitNewToDo(newToDo);
+	        }
+	    };
 
-	    handleAddClick: function handleAddClick() {
-	        var newToDo = this.refs.toDoInput.value;
-	        this.refs.toDoInput.value = "";
-	        this.props.submitNewToDo(newToDo);
-	    },
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            { className: 'container' },
-	            React.createElement('input', { ref: 'toDoInput', type: 'text', className: 'new-to-do new-item', placeholder: 'Add New ToDo' }),
-	            React.createElement(
-	                'button',
-	                { className: 'new-to-do add-new', onClick: this.handleAddClick },
-	                '+'
-	            )
-	        );
-	    }
-	});
+	    var input = void 0;
+	    return React.createElement(
+	        "div",
+	        { className: "container" },
+	        React.createElement("input", { ref: function ref(node) {
+	                input = node;
+	            }, type: "text", className: "new-to-do new-item", placeholder: "Add New ToDo" }),
+	        React.createElement(
+	            "button",
+	            { className: "new-to-do add-new", onClick: handleAddClick, onKeyDown: handleKeyboad },
+	            "Add It"
+	        )
+	    );
+	};
 
 	module.exports = AddNew;
 

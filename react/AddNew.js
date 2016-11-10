@@ -1,20 +1,26 @@
 const React = require('react')
-const Axios = require('axios')
 
-const AddNew = React.createClass({
-    handleAddClick: function() {
-        var newToDo = this.refs.toDoInput.value
-        this.refs.toDoInput.value = ""
-        this.props.submitNewToDo(newToDo)
-    },
-    render() {
-        return (
-            <div className="container">
-                <input ref="toDoInput" type="text" className="new-to-do new-item" placeholder="Add New ToDo" />
-                <button className="new-to-do add-new" onClick={this.handleAddClick}>+</button>
-            </div>
-        )
+const AddNew = (props) => {
+    const handleAddClick = () => {
+        const newToDo = input.value
+        input.value = ""
+        props.submitNewToDo(newToDo)
     }
-})
+    const handleKeyboad = (event) => {
+        if (event.keyCode == 13) {
+            const newToDo = input.value
+            input.value = ""
+            this.props.submitNewToDo(newToDo)
+        }
+    }
+
+    let input
+    return (
+        <div className="container">
+            <input ref={(node) => {input = node}} type="text" className="new-to-do new-item" placeholder="Add New ToDo" />
+            <button className="new-to-do add-new" onClick={handleAddClick} onKeyDown={handleKeyboad}>Add It</button>
+        </div>
+    )
+}
 
 module.exports = AddNew
