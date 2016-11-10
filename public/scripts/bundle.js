@@ -23039,10 +23039,11 @@
 	        { className: "container" },
 	        React.createElement("input", { ref: function ref(node) {
 	                input = node;
-	            }, type: "text", className: "new-to-do new-item", placeholder: "Add New ToDo" }),
+	            }, type: "text", className: "new-to-do new-item",
+	            placeholder: "Add New ToDo", onKeyDown: handleKeyboad }),
 	        React.createElement(
 	            "button",
-	            { className: "new-to-do add-new", onClick: handleAddClick, onKeyDown: handleKeyboad },
+	            { className: "new-to-do add-new", onClick: handleAddClick },
 	            "Add It"
 	        )
 	    );
