@@ -6,8 +6,8 @@ const ListItem = React.createClass({
         const id = this.props.data._id
         let newData = this.props.data
         newData.complete = (this.props.data.complete ? "" : "complete")
-        console.log(this.props.data)
-        console.log(newData)
+        console.log("newData.complete", newData.complete)
+        var status = newData.complete
         this.props.updateToDo(id, newData)
     },
     handleEx(){
@@ -15,14 +15,11 @@ const ListItem = React.createClass({
         this.props.deleteToDo(id)
     },
     render() {
-        function getClassNames() {
-            return this.props.data.complete ? "complete" : ""
-        }
         return (
             <div>
                 <li>
                     <img src="img/check.png" alt="check mark" className="check" onClick={this.handleCheck} />
-                    <span className={getClassNames}> {this.props.data.item}</span>
+                    <span className={this.status}> {this.props.data.item}</span>
                     <img src="img/delete.png" alt="delete x mark" className="delete" onClick={this.handleEx} />
                 </li>
             </div>

@@ -22978,8 +22978,8 @@
 	        var id = this.props.data._id;
 	        var newData = this.props.data;
 	        newData.complete = this.props.data.complete ? "" : "complete";
-	        console.log(this.props.data);
-	        console.log(newData);
+	        console.log("newData.complete", newData.complete);
+	        var status = newData.complete;
 	        this.props.updateToDo(id, newData);
 	    },
 	    handleEx: function handleEx() {
@@ -22987,9 +22987,6 @@
 	        this.props.deleteToDo(id);
 	    },
 	    render: function render() {
-	        function getClassNames() {
-	            return this.props.data.complete ? "complete" : "";
-	        }
 	        return React.createElement(
 	            "div",
 	            null,
@@ -22999,7 +22996,7 @@
 	                React.createElement("img", { src: "img/check.png", alt: "check mark", className: "check", onClick: this.handleCheck }),
 	                React.createElement(
 	                    "span",
-	                    { className: getClassNames },
+	                    { className: this.status },
 	                    " ",
 	                    this.props.data.item
 	                ),
