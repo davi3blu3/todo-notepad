@@ -22976,9 +22976,10 @@
 	    displayName: "ListItem",
 	    handleCheck: function handleCheck() {
 	        var id = this.props.data._id;
-	        this.props.data.complete === "complete" ? "" : "complete";
-	        console.log(this.props.complete);
-	        this.props.updateToDo(id, newData);
+	        var status = this.props.data.complete;
+	        status === "complete" ? "" : "complete";
+	        console.log(status);
+	        this.props.updateToDo(id, status);
 	    },
 	    handleEx: function handleEx() {
 	        var id = this.props.data._id;
