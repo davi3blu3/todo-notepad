@@ -18,7 +18,7 @@ const ToDoApp = React.createClass({
         this.serverRequest.abort()
     },
     getToDoList: function(th) {
-        th.serverRequest = Axios.get('https://intense-ridge-57852.herokuapp.com/list')
+        th.serverRequest = Axios.get('/list')
             .then(function(result) {
                 th.setState({
                     toDoList: result.data
