@@ -68,7 +68,7 @@
 	        this.serverRequest.abort();
 	    },
 	    getToDoList: function getToDoList(th) {
-	        th.serverRequest = Axios.get('https://intense-ridge-57852.herokuapp.com/list').then(function (result) {
+	        th.serverRequest = Axios.get('/list').then(function (result) {
 	            th.setState({
 	                toDoList: result.data
 	            });
