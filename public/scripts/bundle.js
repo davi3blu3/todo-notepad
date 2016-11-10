@@ -88,14 +88,14 @@
 	    deleteToDo: function deleteToDo(toDo) {
 	        var th = this;
 
-	        Axios.delete('/list' + toDo).then(function (result) {
+	        Axios.delete('/list/' + toDo).then(function (result) {
 	            th.getToDoList(th);
 	        });
 	    },
 	    updateToDo: function updateToDo(toDo, data) {
 	        var th = this;
 
-	        Axios.put('/list' + toDo, data).then(function (result) {
+	        Axios.put('/list/' + toDo, data).then(function (result) {
 	            th.getToDoList(th);
 	        });
 	    },

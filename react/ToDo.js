@@ -39,7 +39,7 @@ const ToDoApp = React.createClass({
     deleteToDo: function(toDo) {
         var th = this
 
-        Axios.delete('/list' + toDo)
+        Axios.delete('/list/' + toDo)
         .then(function(result) {
             th.getToDoList(th)          
         })
@@ -47,7 +47,7 @@ const ToDoApp = React.createClass({
     updateToDo: function(toDo, data) {
         var th = this
 
-        Axios.put('/list' + toDo, data)
+        Axios.put('/list/' + toDo, data)
             .then(function(result) {
                 th.getToDoList(th)          
             })
