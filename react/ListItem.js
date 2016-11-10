@@ -2,7 +2,7 @@ const React = require('react')
 
 
 const ListItem = React.createClass({
-    var status,
+    status,
     handleCheck(){
         const id = this.props.data._id
         let newData = this.props.data
