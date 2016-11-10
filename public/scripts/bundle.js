@@ -68,7 +68,7 @@
 	        this.serverRequest.abort();
 	    },
 	    getToDoList: function getToDoList(th) {
-	        th.serverRequest = Axios.get('https://intense-ridge-57852.herokuapp.com/list').then(function (result) {
+	        th.serverRequest = Axios.get('/list').then(function (result) {
 	            th.setState({
 	                toDoList: result.data
 	            });
@@ -78,7 +78,7 @@
 	        var th = this;
 
 	        if (!(newToDo === "")) {
-	            Axios.post('https://intense-ridge-57852.herokuapp.com/list', {
+	            Axios.post('/list', {
 	                "item": newToDo
 	            }).then(function () {
 	                th.getToDoList(th);
@@ -88,14 +88,14 @@
 	    deleteToDo: function deleteToDo(toDo) {
 	        var th = this;
 
-	        Axios.delete('https://intense-ridge-57852.herokuapp.com/list/' + toDo).then(function (result) {
+	        Axios.delete('/list/' + toDo).then(function (result) {
 	            th.getToDoList(th);
 	        });
 	    },
 	    updateToDo: function updateToDo(toDo, data) {
 	        var th = this;
 
-	        Axios.put('https://intense-ridge-57852.herokuapp.com/list/' + toDo, data).then(function (result) {
+	        Axios.put('/list/' + toDo, data).then(function (result) {
 	            th.getToDoList(th);
 	        });
 	    },
@@ -23017,26 +23017,29 @@
 
 	var AddNew = function AddNew(props) {
 	    var handleAddClick = function handleAddClick() {
-	        var newToDo = undefined.refs.toDoInput.value;
-	        undefined.refs.toDoInput.value = "";
-	        undefined.props.submitNewToDo(newToDo);
+	        var newToDo = input.value;
+	        input.value = "";
+	        props.submitNewToDo(newToDo);
 	    };
 	    var handleKeyboad = function handleKeyboad(event) {
 	        if (event.keyCode == 13) {
-	            var newToDo = undefined.refs.toDoInput.value;
-	            undefined.refs.toDoInput.value = "";
+	            var newToDo = input.value;
+	            input.value = "";
 	            undefined.props.submitNewToDo(newToDo);
 	        }
 	    };
 
+	    var input = void 0;
 	    return React.createElement(
 	        "div",
 	        { className: "container" },
-	        React.createElement("input", { ref: "toDoInput", type: "text", className: "new-to-do new-item", placeholder: "Add New ToDo" }),
+	        React.createElement("input", { ref: function ref(node) {
+	                input = node;
+	            }, type: "text", className: "new-to-do new-item", placeholder: "Add New ToDo" }),
 	        React.createElement(
 	            "button",
-	            { className: "new-to-do add-new", onClick: undefined.handleAddClick, onKeyDown: undefined.handleKeyboad },
-	            "+"
+	            { className: "new-to-do add-new", onClick: handleAddClick, onKeyDown: handleKeyboad },
+	            "Add It"
 	        )
 	    );
 	};
