@@ -14,10 +14,9 @@ const AddNew = (props) => {
         }
     }
 
-    let input
     return (
         <div className="container">
-            <input ref={(node) => {input = node}} type="text" className="new-to-do new-item" 
+            <input type="text" className="new-to-do new-item" 
                 placeholder="Add New ToDo" onKeyDown={handleKeyboad} />
             <button className="new-to-do add-new" onClick={handleAddClick}>Add It</button>
         </div>

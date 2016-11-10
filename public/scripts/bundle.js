@@ -23030,13 +23030,10 @@
 	        }
 	    };
 
-	    var input = void 0;
 	    return React.createElement(
 	        "div",
 	        { className: "container" },
-	        React.createElement("input", { ref: function ref(node) {
-	                input = node;
-	            }, type: "text", className: "new-to-do new-item",
+	        React.createElement("input", { type: "text", className: "new-to-do new-item",
 	            placeholder: "Add New ToDo", onKeyDown: handleKeyboad }),
 	        React.createElement(
 	            "button",
