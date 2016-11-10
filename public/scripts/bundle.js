@@ -23029,7 +23029,7 @@
 	        if (event.keyCode == 13) {
 	            var newToDo = input.value;
 	            input.value = "";
-	            undefined.props.submitNewToDo(newToDo);
+	            props.submitNewToDo(newToDo);
 	        }
 	    };
 

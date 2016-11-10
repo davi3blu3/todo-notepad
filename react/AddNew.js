@@ -10,7 +10,7 @@ const AddNew = (props) => {
         if (event.keyCode == 13) {
             const newToDo = input.value
             input.value = ""
-            this.props.submitNewToDo(newToDo)
+            props.submitNewToDo(newToDo)
         }
     }
 
