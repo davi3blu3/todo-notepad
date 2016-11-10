@@ -22974,14 +22974,10 @@
 
 	var ListItem = React.createClass({
 	    displayName: "ListItem",
-
-	    status: status,
 	    handleCheck: function handleCheck() {
 	        var id = this.props.data._id;
-	        var newData = this.props.data;
-	        newData.complete = this.props.data.complete ? "" : "complete";
+	        this.props.data.complete === "complete" ? "" : "complete";
 	        console.log("newData.complete", newData.complete);
-	        status = newData.complete;
 	        this.props.updateToDo(id, newData);
 	    },
 	    handleEx: function handleEx() {
@@ -22998,7 +22994,7 @@
 	                React.createElement("img", { src: "img/check.png", alt: "check mark", className: "check", onClick: this.handleCheck }),
 	                React.createElement(
 	                    "span",
-	                    { className: this.status },
+	                    { className: this.props.data.complete },
 	                    " ",
 	                    this.props.data.item
 	                ),
