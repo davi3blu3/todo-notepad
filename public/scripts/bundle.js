@@ -23004,7 +23004,9 @@
 	                " ",
 	                props.data.item
 	            ),
-	            React.createElement("img", { src: "img/delete.png", alt: "delete x mark", className: "delete", onClick: handleEx })
+	            React.createElement("img", { ref: function ref(node) {
+	                    img = node;
+	                }, src: "img/delete.png", alt: "delete x mark", className: "delete", onClick: handleEx })
 	        )
 	    );
 	};

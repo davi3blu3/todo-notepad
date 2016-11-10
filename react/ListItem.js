@@ -23,7 +23,7 @@ const ListItem = (props) => {
                 <img ref={(node) => {img = node}} src="img/check.png" alt="check mark" className="check" 
                     onClick={handleCheck} />
                 <span className={getClassNames()}> {props.data.item}</span>
-                <img src="img/delete.png" alt="delete x mark" className="delete" onClick={handleEx} />
+                <img ref={(node) => {img = node}} src="img/delete.png" alt="delete x mark" className="delete" onClick={handleEx} />
             </li>
         </div>
     )
