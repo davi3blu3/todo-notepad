@@ -22938,7 +22938,7 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var ListItem = __webpack_require__(198);
+	var ListItem = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./ListItem\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var Paper = function Paper(props) {
 	    return React.createElement(
@@ -22965,50 +22965,7 @@
 	module.exports = Paper;
 
 /***/ },
-/* 198 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var React = __webpack_require__(1);
-
-	var ListItem = React.createClass({
-	    displayName: "ListItem",
-	    handleCheck: function handleCheck() {
-	        var id = this.props.data._id;
-	        var newData = this.props.data;
-	        newData.complete = this.props.data.complete ? "" : "complete";
-	        console.log("newData.complete", newData.complete);
-	        var status = newData.complete;
-	        this.props.updateToDo(id, newData);
-	    },
-	    handleEx: function handleEx() {
-	        var id = this.props.data._id;
-	        this.props.deleteToDo(id);
-	    },
-	    render: function render() {
-	        return React.createElement(
-	            "div",
-	            null,
-	            React.createElement(
-	                "li",
-	                null,
-	                React.createElement("img", { src: "img/check.png", alt: "check mark", className: "check", onClick: this.handleCheck }),
-	                React.createElement(
-	                    "span",
-	                    { className: this.status },
-	                    " ",
-	                    this.props.data.item
-	                ),
-	                React.createElement("img", { src: "img/delete.png", alt: "delete x mark", className: "delete", onClick: this.handleEx })
-	            )
-	        );
-	    }
-	});
-
-	module.exports = ListItem;
-
-/***/ },
+/* 198 */,
 /* 199 */
 /***/ function(module, exports, __webpack_require__) {
 

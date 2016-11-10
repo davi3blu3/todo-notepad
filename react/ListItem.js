@@ -2,12 +2,13 @@ const React = require('react')
 
 
 const ListItem = React.createClass({
+    var status,
     handleCheck(){
         const id = this.props.data._id
         let newData = this.props.data
         newData.complete = (this.props.data.complete ? "" : "complete")
         console.log("newData.complete", newData.complete)
-        var status = newData.complete
+        status = newData.complete
         this.props.updateToDo(id, newData)
     },
     handleEx(){
